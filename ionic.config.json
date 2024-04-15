@@ -1,0 +1,7 @@
+{
+  "name": "my-realestates-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
