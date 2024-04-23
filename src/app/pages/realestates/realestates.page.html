@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      عقاراتي
+  <ion-toolbar >
+    
+    <ion-title class="darkgreen">
+      
+      <ion-icon class="sizenoti" name="notifications-outline"></ion-icon>
+      <ion-label class="labelhead">عقاراتي</ion-label> 
+      
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,19 +13,19 @@
 <ion-content [fullscreen]="true">
   
 
-  <ion-list>
-    <ion-item button *ngFor="let item of realestates" [routerLink]="[item.id]">
+  <ion-list lines="full" class="ion-padding">
+    <ion-item detail *ngFor="let item of realestates" [routerLink]="[item.id]">
 
-      <ion-avatar slot="start">
+      <ion-thumbnail slot="start">
         <img [src]="imageBaseUrl + '/w92' + item.poster_path" />
-      </ion-avatar>
+      </ion-thumbnail>
 
       <ion-label>
         {{item.title}}
         <p>{{item.release_date | date:'y'}}</p>
       </ion-label>
 
-      <ion-badge slot="end">{{item.vote_average}}</ion-badge>
+      <ion-badge color="warning" slot="end">{{item.vote_average}}</ion-badge>
 
     </ion-item>
   </ion-list>
@@ -30,3 +34,4 @@
   </ion-infinite-scroll>
   
 </ion-content>
+
