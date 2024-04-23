@@ -19,7 +19,11 @@ const routes: Routes = [
   {
     path: 'realestates',
     loadChildren: () => import('./pages/realestates/realestates.module').then( m => m.RealestatesPageModule)
+  },  {
+    path: 'navbar',
+    loadChildren: () => import('./navbar/navbar.module').then( m => m.NavbarPageModule)
   },
+
 ];
 
 @NgModule({

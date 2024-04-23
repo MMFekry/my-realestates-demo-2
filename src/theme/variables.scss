@@ -2,6 +2,7 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -19,6 +20,15 @@
   --ion-color-secondary-shade: #36abe0;
   --ion-color-secondary-tint: #50c8ff;
 
+ /** darkgreen **/
+
+ --ion-color-darkgreen: #007664;
+  --ion-color-darkgreen-rgb: 0, 118, 100;
+  --ion-color-darkgreen-contrast: #ffffff;
+  --ion-color-darkgreen-contrast-rgb: 255, 255, 255;
+  --ion-color-darkgreen-shade: #015044;
+  --ion-color-darkgreen-tint: #0b7767;
+  
   /** tertiary **/
   --ion-color-tertiary: #5260ff;
   --ion-color-tertiary-rgb: 82, 96, 255;
@@ -74,6 +84,9 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-font-family: 'Helvetica bold', sans-serif !important;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -235,10 +248,36 @@
   }
 }
 
+@font-face {
+  font-family: 'Helvetica bold';
+  src: url('../assets/fonts/HelveticaNeue-Bold.eot');
+  src: url('../assets/fonts/HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+      url('../assets/fonts/HelveticaNeue-Bold.woff') format('woff'),
+      url('../assets/fonts/HelveticaNeue-Bold.ttf') format('truetype'),
+      url('../assets/fonts/HelveticaNeue-Bold.svg#HelveticaNeue-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica roman';
+  src: url('../assets/fonts/HelveticaNeue-Roman.eot');
+  src: url('../assets/fonts/HelveticaNeue-Roman.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
+      url('../assets/fonts/HelveticaNeue-Roman.woff') format('woff'),
+      url('../assets/fonts/HelveticaNeue-Roman.ttf') format('truetype'),
+      url('../assets/fonts/HelveticaNeue-Roman.svg#HelveticaNeue-Roman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   /* 
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
-  --ion-dynamic-font: var(--ion-default-dynamic-font);
+  --ion-dynamic-font: 'Helvetica bold', var(--ion-default-dynamic-font);
 }
