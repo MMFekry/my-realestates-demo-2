@@ -19,11 +19,19 @@ const routes: Routes = [
   {
     path: 'realestates',
     loadChildren: () => import('./pages/realestates/realestates.module').then( m => m.RealestatesPageModule)
-  },  {
-    path: 'navbar',
-    loadChildren: () => import('./navbar/navbar.module').then( m => m.NavbarPageModule)
   },
-
+  {
+    path: 'todo-list',
+    loadChildren: () => import('./pages/todo-list/todo-list.module').then( m => m.TodoListPageModule)
+  },
+  {
+    path: 'todo-add',
+    loadChildren: () => import('./pages/todo-add/todo-add.module').then( m => m.TodoAddPageModule)
+  },
+  {
+    path: 'todo-detail',
+    loadChildren: () => import('./pages/todo-detail/todo-detail.module').then( m => m.TodoDetailPageModule)
+  },
 ];
 
 @NgModule({

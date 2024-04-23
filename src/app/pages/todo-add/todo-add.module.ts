@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { TodoAddPageRoutingModule } from './todo-add-routing.module';
 
-import { LoginPage } from './login.page';
+import { TodoAddPage } from './todo-add.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
+    TodoAddPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginPage]
+  declarations: [TodoAddPage]
 })
-export class LoginPageModule {}
+export class TodoAddPageModule {}
