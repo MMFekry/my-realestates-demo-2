@@ -10,11 +10,11 @@
       <ion-spinner></ion-spinner>
     </ion-col>
   </ion-row>
-  <!-- <ion-refresher slot="fixed">
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>
 
     </ion-refresher-content>
-  </ion-refresher> -->
+  </ion-refresher> 
   
   <ion-row class="ion-justify-content-center" *ngIf="todos">
     <ion-col size="12" sizeSm="12" sizeMd="6">
@@ -38,6 +38,10 @@
       </ion-card>
     </ion-col>  
   </ion-row>
+  
+  <div class="ion-text-center" *ngIf="err">
+    <ion-text color="danger">{{err}}</ion-text>
+  </div>
 
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button (click)="CreateTodo()">

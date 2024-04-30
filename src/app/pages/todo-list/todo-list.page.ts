@@ -13,9 +13,12 @@ export class TodoListPage implements OnInit {
  alert : AlertController = new AlertController();
  todos!: Todo[];
  loading: boolean=true;
+ err!: string;
+ page: number=1;
   constructor(private router: Router, private service: RealestateService) { }
 
   ngOnInit() {
+    
     this.getData();
   }
 
@@ -24,13 +27,15 @@ export class TodoListPage implements OnInit {
 
   }
 
-  getData(){
-    setTimeout(() => {
-      this.loading = false;
-      this.todos = this.service.getData();
-    }, 3000);
-  
-    this.todos =  this.service.getData();
+  getData(event?: any){
+    if(!event) this.loading = true;
+    this.service.getData('todos').subscribe((res : any) => {
+      event? event.target.complete() : this.loading = false;
+      this.todos = res;
+    }, e => {
+      event? event.target.complete() : this.loading = false;
+      this.err = e;
+    });
   }
   detail(todo: Todo){
     this.service.setParams({todo});
@@ -67,21 +72,14 @@ export class TodoListPage implements OnInit {
 
   }
 
-  doRefresh(event: InfiniteScrollCustomEvent){
-    setTimeout(() => {
-      this.service.getData();
-      event.target.complete();
-    }, 3000);
-
-
+  doRefresh(event: any){
+      this.getData(event);
   }
 
   
-loadMore(event: InfiniteScrollCustomEvent) {
-  setTimeout(() => {
-    this.todos = this.todos.concat(...this.service.getData());
-    event.target.complete();
-  }, 3000);
+loadMore(event: any) {
+  this.page+=1;
+  this.getData(event);
 }
 
 }

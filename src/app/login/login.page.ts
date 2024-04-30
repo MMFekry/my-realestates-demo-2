@@ -32,4 +32,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/todo-list'])
 
   }
+  OnGoMovie(){
+    this.router.navigate(['/realestates'])
+
+  }
 }

@@ -10,53 +10,9 @@ export interface ApiResult {
     total_results: number;
   }
 
-  const todos : Todo[] = [{
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },{
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },{
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },
-  {
-    title : 'title',
-    desc: 'desc',
-    date: new Date()
-  },];
-@Injectable({
+  @Injectable({
     providedIn: 'root',
   })
-
 export class RealestateService {
   routeParams : any = [];
 
@@ -79,14 +35,22 @@ export class RealestateService {
       this.routeParams = body;
     }
 
-    getData() : Todo[]
+    getData(endPoint: string) 
     {
-      return todos;
+      return this.http.get(environment.todoBaseUrl+endPoint);
     }
 
-    postData(){}
+    postData(endPoint: string, body: any){
+      return this.http.post(environment.todoBaseUrl+endPoint, body);
+    }
 
-    deleteData(){}
+    deleteData(endPoint: string){
+      return this.http.delete(environment.todoBaseUrl+endPoint);
 
-    updateData(){}
+    }
+
+    updateData(endPoint: string, body: any){
+      return this.http.put(environment.todoBaseUrl+endPoint, body);
+
+    }
 }

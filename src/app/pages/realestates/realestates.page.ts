@@ -12,6 +12,8 @@ export class RealestatesPage implements OnInit {
   realestates:any[] = [];
   current = 1;
   imageBaseUrl = environment.images;
+  imageinassets :string='../../../assets/icon/favicon.png';
+
   constructor(private realestateService: RealestateService, private loadingCtrl: LoadingController) {}
 ngOnInit(){
   this.loadRealEstates();
