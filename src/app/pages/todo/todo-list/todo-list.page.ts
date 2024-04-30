@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, InfiniteScrollCustomEvent, RefresherEventDetail} from '@ionic/angular';
 import { RealestateService } from 'src/app/service/realestate-service';
-import { Todo } from 'src/app/shared/todo';
+import { Todo } from 'src/app/pages/todo/models/todo';
 
 @Component({
   selector: 'app-todo-list',

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RealestateService } from 'src/app/service/realestate-service';
-import { Todo } from 'src/app/shared/todo';
+import { Todo } from 'src/app/pages/todo/models/todo';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 
