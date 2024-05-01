@@ -1,8 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-back-button slot="start"></ion-back-button>
+  <ion-toolbar class="ion-padding-top ion-text-center">
 
-    <ion-title>{{todo?'todo-edit':'todo-add'}}</ion-title>
+    <ion-buttons class="text-white absloute-right" slot="end">
+      <ion-back-button icon="arrow-forward-outline"></ion-back-button>
+   </ion-buttons>
+
+    <ion-title class="text-white h1 ion-text-center">{{todo?'تعديل':'اضافة'}}</ion-title>
+
+
+    
     
   </ion-toolbar>
 </ion-header>
@@ -20,7 +26,7 @@
         </ion-item>
       </form>
         <ion-button expand="block" shape="round" class="ion-margin-top"
-         [disabled]="!form.valid" (click)="OnSubmit()"> Save</ion-button>
+         [disabled]="!form.valid" (click)="OnSubmit()"> حفظ</ion-button>
     </ion-col>  
   </ion-row>
 

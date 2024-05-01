@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="h1 text-white">عقاراتي</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+      <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+         <ion-segment-button value="registedUnits">
+            <ion-label>عقار مسجل</ion-label>
+         </ion-segment-button>
+
+         <ion-segment-button value="intertedUnites">
+          <ion-label>عقار مهتم به</ion-label>
+       </ion-segment-button>
+
+      </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" >
+ 
+  <div class="unitItems">
+
+     
+
+
+  </div>
+
+</ion-content>
