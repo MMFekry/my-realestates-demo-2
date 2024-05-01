@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'todo-detail',
     loadChildren: () => import('./pages/todo-detail/todo-detail.module').then( m => m.TodoDetailPageModule)
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+
 ];
 
 @NgModule({
