@@ -24,3 +24,86 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'Graphik Arabic Web Bold';
+    src: url('assets/fonts/GraphikArabic-Bold-Web.woff2') format('woff2'),
+        url('assets/fonts/GraphikArabic-Bold-Web.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Graphik Arabic Web Medium';
+    src: url('assets/fonts/GraphikArabic-Medium-Web.woff2') format('woff2'),
+        url('assets/fonts/GraphikArabic-Medium-Web.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+.Graphik-medum   {
+  font-family: 'Graphik Arabic Web Medium', sans-serif!important ;
+}
+  .h1  {
+    font-family: 'Graphik Arabic Web Medium', sans-serif!important; font-size: 20px;
+    line-height: 36px; width:100%; display: inline-block; margin-bottom:15px;
+  }
+
+  .text-white  {
+    color: #fff;
+  }
+
+  .toolbar-title-default  {
+    --background: #007664; border-bottom: 4px #BA9742 solid; text-align: center;
+    padding-top: 15px !important; 
+    --opacity-scale: none !important
+  }
+
+  .toolbar-segment  {
+    --opacity-scale: none !important
+  }
+
+  .header-collapse-condense-inactive:not(.header-collapse-condense) ion-toolbar.in-toolbar ion-title.ios {
+    opacity: 1; margin-top: -7px;
+  }
+
+  .absloute-right   {
+    position: absolute; top:12px; right:5px
+  }
+
+  .rtldir  {
+    direction: rtl;
+  }
+
+  .white-bg  {
+    background: #fff;
+  }
+
+  .pt-3  {
+    padding-top: 11px;
+  }
+
+  .tab-layout-icon-top  {
+color: #B6BDC6; position: relative;
+  }
+
+  .tab-layout-icon-top.tab-selected  {
+    color: #007664
+  }
+
+  .tab-layout-icon-top.tab-selected::before {
+    position: absolute; top:3px; left:50%; content: ''; background: #007664;
+    height: 1px; width: 45px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+      }
+
+ 
+
+  
+
+
+ 
