@@ -1,11 +1,27 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "typicode"
@@ -136,6 +152,18 @@
       "title": "dgfgsfgfsf",
       "desc": "ffdgfdgfd",
       "date": "2024-04-24T15:14:43.092Z"
+    },
+    {
+      "id": "b44d",
+      "title": "نتمبلمىلس",
+      "desc": "ترتنبيريت",
+      "date": "2024-05-01T09:39:05.578Z"
+    },
+    {
+      "id": "d599",
+      "title": "bsbf",
+      "desc": "vdsvsv",
+      "date": "2024-05-02T09:44:21.369Z"
     }
   ]
 }

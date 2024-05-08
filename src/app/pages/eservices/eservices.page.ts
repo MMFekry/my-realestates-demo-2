@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RealestateFavoriteService } from '../../service/realestate-favorite.service';
+import { RealestateResult } from 'src/app/models/realestate';
 
 
 @Component({
@@ -9,11 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class EservicesPage implements OnInit {
 
   selectedSegment : string ='registedUnits';
-  
-
-  constructor() { }
+  result!: RealestateResult;
+  constructor(private service: RealestateFavoriteService) { }
 
   ngOnInit() {
+    this.getfavorite();
   }
 
   segmentChanged(ev: any) {
@@ -21,4 +23,10 @@ export class EservicesPage implements OnInit {
     this.selectedSegment= ev.target.value;
   }
 
+  getfavorite(){
+    this.service.getdata().subscribe(res => {
+     this.result = res;
+     console.log(res);
+    })
+  }
 }

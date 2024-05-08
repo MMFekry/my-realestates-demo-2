@@ -36,4 +36,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/realestates'])
 
   }
+  OnGoDesign(){
+    this.router.navigate(['/tabs'])
+
+  }
 }

@@ -85,12 +85,12 @@
     </div>
      
     <div class="intertedUnites" *ngIf="selectedSegment == 'intertedUnites'">
-      <ion-list class="listrealestat" lines="none" detail >
+      <ion-list class="listrealestat" lines="none" detail *ngIf="result.data">
       
-        <ion-item color="none" class="rowrealestat">
-          <h5 size="large" slot="start">وحدة</h5>
+        <ion-item color="none" class="rowrealestat" *ngFor="let prop of result.data; let i = index">
+          <h5 size="large" slot="start">{{prop.PropertyTypeName}}</h5>
           <ion-label>
-          <h2>٨ شارع سعد زغلول المناخ - بورسعيد</h2>
+          <h2 *ngFor="let adres of prop.LandsInfo">{{adres.Number+ ',' +adres.DistrictName+ ',' +adres.PoliceOffice+ ',' +adres.Governorate}}</h2>
           <p>عقار سكني</p>
           </ion-label>
 
@@ -98,7 +98,7 @@
 
           </ion-item>
 
-          <ion-item color="none" class="rowrealestat">
+          <!-- <ion-item color="none" class="rowrealestat">
             <h5 size="large" slot="start">وحدة</h5>
             <ion-label>
             <h2>٧ شارع سبيل الخزندار الظاهر - القاهرة</h2>
@@ -118,7 +118,7 @@
     
               <ion-icon slot="end" name="chevron-back-outline"></ion-icon>
     
-              </ion-item>
+              </ion-item> -->
 
            
 

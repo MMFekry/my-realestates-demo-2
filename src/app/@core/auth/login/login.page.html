@@ -28,13 +28,19 @@
       <br>
 
       <ion-button expand="block" [disabled]="!form.valid" (click)="OnSubmit()">
-        login
+        GO Todo
       </ion-button>
       <br>
 
       <ion-button color="success" expand="block" [disabled]="!form.valid" (click)="OnGoMovie()">
         Go Movie
       </ion-button>
+
+      
+      <ion-button color="danger" expand="block" [disabled]="!form.valid" (click)="OnGoDesign()">
+        Go Design
+      </ion-button>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
