@@ -1,5 +1,41 @@
 .unitItems  {
     display: inline-block; 
     width: 100%; background: #fff; border-radius: 10px;
-    padding: 10px;
+    padding: 3px 0;
+}
+
+.listrealestat  {
+    background: transparent;
+}
+
+.rowrealestat {
+    display: inline-block; 
+    width: 100%; position: relative; padding: 10px 10px 10px 0; 
+   border-bottom: 1px #ddd solid;
+}
+
+.unitItems .rowrealestat h5 {
+    display: inline-block; margin: 0; vertical-align: top; width: 50px; height: 50px; border-radius: 50%; background: #BA9742;
+    top:10px; right:10px; color: #F9F4EA; font-size: 11px; line-height: 50px; text-align: center; 
+    font-family: 'Graphik Arabic Web Medium', sans-serif!important ;
+}
+
+.unitItems .rowrealestat h2 {
+  color: #000; font-size: 16px; margin-bottom: 8px;
+    font-family: 'Graphik Arabic Web bold', sans-serif!important ;
+}
+
+.unitItems .rowrealestat p {
+    color: #B6BDC6; font-size: 14px;    
+    font-family: 'Graphik Arabic Web Medium', sans-serif!important ;
+}
+
+.tabrealestat .segment-button-has-label {
+  color: #000 !important; font-size: 18px;
+  font-family: 'Graphik Arabic Web Medium', sans-serif!important ;
+}
+
+.tabrealestat .segment-button-has-label.segment-button-checked  {
+    font-family: 'Graphik Arabic Web bold', sans-serif!important ;
+    --color-checked:  #007664 !important;
 }

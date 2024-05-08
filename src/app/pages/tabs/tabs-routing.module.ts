@@ -24,6 +24,18 @@ const routes: Routes = [
         path: 'myaccount',
         loadChildren: () => import('../myaccount/myaccount.module').then( m => m.MyaccountPageModule)
       },
+      {
+        path: 'eservicelv1',
+        loadChildren: () => import('../eservicelv1/eservicelv1.module').then( m => m.Eservicelv1PageModule)
+      },
+      {
+        path: 'second-servces',
+        loadChildren: () => import('../second-servces/second-servces.module').then( m => m.SecondServcesPageModule)
+      },
+      {
+        path: 'consensual-sale',
+        loadChildren: () => import('../consensual-sale/consensual-sale.module').then( m => m.ConsensualSalePageModule)
+      },
     ]
   },
   {
