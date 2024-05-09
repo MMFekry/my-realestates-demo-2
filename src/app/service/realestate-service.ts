@@ -52,4 +52,5 @@ export class RealestateService {
       return this.http.put(environment.todoBaseUrl+endPoint, body);
 
     }
+    
 }

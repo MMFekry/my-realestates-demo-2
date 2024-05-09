@@ -30,8 +30,8 @@
           <h5 size="large" slot="start">وحدة</h5>
           <ion-label>
           <h2>٥ شارع أحمد عصمت القاهرة القاهرة</h2>
-          <p>عقار سكني</p>
-          </ion-label>
+          <p>محافظة القاهرة</p>
+        </ion-label>
             
                 <ion-icon slot="end" routerLink="../eservicelv1" name="chevron-back-outline"></ion-icon>
               
@@ -40,8 +40,8 @@
             <h5 size="large" slot="start">وحدة</h5>
             <ion-label>
             <h2>٧ شارع أحمد عصمت القاهرة القاهرة</h2>
-            <p>فيلا</p>
-            </ion-label>
+            <p>محافظة القاهرة</p>
+          </ion-label>
   
             <ion-icon slot="end" name="chevron-back-outline"></ion-icon>
   
@@ -51,8 +51,8 @@
               <h5 size="large" slot="start">وحدة</h5>
               <ion-label>
               <h2>٢ شارع أحمد سعيد الوايلي - القاهرة</h2>
-              <p>عقار سكني</p>
-              </ion-label>
+              <p>محافظة القاهرة</p>
+            </ion-label>
     
               <ion-icon slot="end" routerLink="../eservicelv1" name="chevron-back-outline"></ion-icon>
     
@@ -62,8 +62,8 @@
                 <h5 size="large" slot="start">أرض مبنية</h5>
                 <ion-label>
                 <h2>١١شارع عمر مكرم قصر النيل - القاهرة</h2>
-                <p>عقار سكني</p>
-                </ion-label>
+                <p>محافظة القاهرة</p>
+              </ion-label>
       
                 <ion-icon slot="end" routerLink="../eservicelv1" name="chevron-back-outline"></ion-icon>
       
@@ -73,7 +73,7 @@
                   <h5 size="large" slot="start">وحدة</h5>
                   <ion-label>
                   <h2>٤ شارع بهاء الدين الهرم - الجيزة</h2>
-                  <p>عقار سكني</p>
+                  <p>محافظة الجيزة</p>
                   </ion-label>
         
                   <ion-icon slot="end" routerLink="../eservicelv1" name="chevron-back-outline"></ion-icon>
@@ -91,8 +91,11 @@
         <ion-item color="none" class="rowrealestat" *ngFor="let prop of result.data; let i = index">
           <h5 size="large" slot="start">{{prop.PropertyTypeName}}</h5>
           <ion-label>
-          <h2 *ngFor="let adres of prop.LandsInfo">{{adres.Number+ ',' +adres.DistrictName+ ',' +adres.PoliceOffice+ ',' +adres.Governorate}}</h2>
-          <p>عقار سكني</p>
+          <div *ngFor="let adres of prop.LandsInfo">
+            <h2>{{adres.Number+ ',' +adres.DistrictName+ ',' +adres.PoliceOffice+ ',' +adres.Governorate}}</h2>
+            <p>محافظة {{adres.Governorate}}</p>
+          </div>
+          
           </ion-label>
 
           <ion-icon slot="end" name="chevron-back-outline"></ion-icon>
