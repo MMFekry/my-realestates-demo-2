@@ -1,0 +1,93 @@
+.loginbox  {
+    position: absolute; top:10vh; left:50%; width: 400px;
+    max-width: 94%; margin: 0;
+    transform: translateX(-50%) ;
+    -webkit-transform: translateX(-50%) ;
+    box-shadow: none !important;
+    -webkit-box-shadow: 0 0 10px 0 rgba(136, 136, 136, 0.4);
+    box-shadow: 0 0 10px 0 rgba(136, 136, 136, 0.4);
+}
+
+
+
+.headlogiin h2  {
+    color: #000 !important; font-size: 26px; margin-bottom: 20px; font-family: var(--fontHelveticaNeue) !important;
+}
+
+.whitelog  {
+    background: #fff; border-radius: 15px; display: block; padding:20px 5px;
+   text-align: center;
+}
+
+.whitelog svg {
+    display: inline-block; margin-bottom: 20px;
+   }
+
+   .labellog  {
+      font-size: 20px; font-family: var(--fontHelveticaNeue) !important; display: block; font-weight: 500; 
+      position: relative; top:-14px;
+   }
+
+   .inputlog  {
+    display: block; border: 1px #5B5B5B solid !important; border-radius: 18px !important; 
+    background-color: transparent !important;
+   }
+
+    .label-stacked.sc-ion-label-md-h  {
+    transform-origin:top right !important; 
+   }
+   .label-stacked.sc-ion-label-md-h sup {
+    color: #D71A21 !important; font-size: 27px !important; font-weight: 600; position: relative; top:4px
+   }
+
+   .loading  {
+    position: fixed; top:0; left:0; width: 100%; height: 100%;
+    background:var(--colorGreen) !important; z-index: 10; 
+   }
+
+   .loading img  {
+    position: absolute; top:50%; left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%); 
+   }
+
+   .native-input {
+    background-color: transparent !important; padding-left: 12px !important; padding-right: 12px !important;
+   }
+
+   .legacy-input.sc-ion-input-md-h   {
+    padding-left: 12px !important; padding-right: 12px !important; background: none !important;
+   }
+
+   .button-native  {
+    background: #007664 !important;
+   }
+
+   .validationlog  {
+    display: inline-block; width: 100%; color: #D71A21; font-size: 15px; display: block;
+    font-family: var(--fontHelveticaNeue) !important; text-align: left;
+   }
+
+   ion-item {
+    --background: none;
+    opacity:1;
+  }
+
+  ion-button  {
+    background: #007664 !important; margin-left: 12px !important; font-size: 18px !important;
+    border-radius: 22px !important; max-width: calc(100% - 24px);  line-height: 38px !important;
+    font-family: var(--fontHelveticaNeue) !important; font-weight: 600 !important;
+  }
+
+  ion-ripple-effect  {
+    background: #007664 !important; 
+    font-family: var(--fontHelveticaNeue) !important; font-weight: 600 !important;
+  }
+
+  :host(.button-block) .button-native  {
+    background: #007664 !important;
+    font-family: var(--fontHelveticaNeue) !important; font-weight: 600 !important;
+  }
+
+
+

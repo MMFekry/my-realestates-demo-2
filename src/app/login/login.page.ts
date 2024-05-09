@@ -7,12 +7,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit { 
+  loading : boolean | any;
 //  username! : string;
 //  password! : string;
  form: FormGroup= new FormGroup({});
   constructor(private router : Router, private fb: FormBuilder) {
     this.CreateForm();
+    this.getInfo();
    }
+
+   getInfo()  {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false
+    },3000)
+  }
 
   ngOnInit() {
   }
