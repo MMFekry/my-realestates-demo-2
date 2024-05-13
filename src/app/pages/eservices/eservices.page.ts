@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RealestateFavoriteService } from '../../service/realestate-favorite.service';
-import { RealestateResult } from 'src/app/models/realestate';
+import { LoadingController, InfiniteScrollCustomEvent } from '@ionic/angular';
 
+import { FavoriteRealestateResult } from 'src/app/models/realestates/favorite-realestate-result';
+import { RegisteredRealestateResult } from 'src/app/models/realestates/registered-realestate-result';
+import { RealestateFavoriteService } from '../../service/realestates/realestate-favorite.service';
+import { RegisteredRealestatesService } from '../../service/realestates/registered-realestates.service';
 
 @Component({
   selector: 'app-eservices',
@@ -11,11 +14,19 @@ import { RealestateResult } from 'src/app/models/realestate';
 export class EservicesPage implements OnInit {
 
   selectedSegment : string ='registedUnits';
-  result!: RealestateResult;
-  constructor(private service: RealestateFavoriteService) { }
+  favoriteResult!: FavoriteRealestateResult;
+  registredResult!: RegisteredRealestateResult;
+  current = 1;
+
+  constructor(private favService: RealestateFavoriteService,
+    private regService: RegisteredRealestatesService,
+    private loadingCtrl: LoadingController
+  ) { }
 
   ngOnInit() {
+    this.getRegisterd();
     this.getfavorite();
+
   }
 
   segmentChanged(ev: any) {
@@ -23,9 +34,30 @@ export class EservicesPage implements OnInit {
     this.selectedSegment= ev.target.value;
   }
 
-  getfavorite(){
-    this.service.getdata().subscribe(res => {
-     this.result = res;
+  async getfavorite(){
+    const loading = await this.loadingCtrl.create({
+      message: 'Loading..',
+      spinner: 'bubbles',
+    });
+    await loading.present();
+  
+    this.favService.getdata().subscribe((res) => {
+      loading.dismiss();
+      //this.favoriteResult.data.push(...res.data);
+      
+     
+     this.favoriteResult = res;
+     console.log(res);
+    },
+    (err) => {
+      console.log(err);
+      loading.dismiss();
+    })
+  }
+
+  getRegisterd(){
+    this.regService.getdata().subscribe(res => {
+     this.registredResult = res;
      console.log(res);
     })
   }

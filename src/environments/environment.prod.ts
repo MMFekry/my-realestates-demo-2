@@ -5,6 +5,6 @@ export const environment = {
   images: 'http://image.tmdb.org/t/p',
   todoBaseUrl: ' http://192.168.1.7:3000/',
   fakeproductUrl: 'https://fakestoreapi.com',
-  realeststeBaseUrl: 'http://10.150.8.22:7075/api/RealEstate/'
-
+  //localBaseUrl: 'http://10.150.8.22:7075/api/',
+  localBaseUrl: 'https://localhost:44323/api/'
 };
