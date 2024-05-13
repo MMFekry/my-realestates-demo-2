@@ -9,9 +9,84 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding mb-3">
+
+  <ion-card class="white-bg greenLne m-0">
+    <ion-card-header>
+    <ion-card-title class="Graphik-bold h3">٥ شارع أحمد عصمت القاهرة القاهرة</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
+        <ion-label>عقار مسجل</ion-label>
+        </ion-chip>
+
+          <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
+            <ion-label>وحدة</ion-label>
+            </ion-chip>
+
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button id="open-custom-dialog" class="addparty ion-no-padding" fill="clear">
+    <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
+         <ion-label class="labeladd">إضافة طرف صادر لصالحه (المشتري)</ion-label><sup>*</sup>
+  </ion-button>
 
 
+  <div class="emptyparty ion-text-center">
+    <ion-icon class="nopersons" name="people-outline"></ion-icon>
+        <ion-label class="noteempty" expand="block">لم يتم اختيار اطراف</ion-label>
+  </div>
+
+  <ion-modal id="example-modal" class="popupmodal" #modal trigger="open-custom-dialog">
+    <ng-template>
+    
+      <ion-toolbar class="rtldir">
+        <ion-title class="titlepoup">ادخل بيانات الطرف</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()"> <ion-icon name="close-outline"></ion-icon></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+      <div class="wrapper white-bg formcontent rtldir">
+       
+      <form>
+        <ion-list class="white-bg" lines="none">
+        <ion-item class="mb-4" color="clear">
+        <ion-label position="stacked" class="labellog">الرقم القومي <sup>*</sup></ion-label>
+        <ion-input class="inputlog" type="text" placeholder="اكتب الرقم القومي"></ion-input>
+        <span class="validationlog">الرقم القومي غير صحيح</span>
+        </ion-item>
+
+        <ion-item color="clear">
+          <ion-label position="stacked" class="labellog">رقم المصنع <sup>*</sup></ion-label>
+          <ion-input class="inputlog" type="text" placeholder="اكتب رقم المصنع"></ion-input>
+          <span class="validationlog">رقم المصنع غير صحيح</span>
+          </ion-item>
+
+          <ion-item class="mb-4" color="clear">
+          <ion-toggle (click)="togglePersentage()" labelPlacement="start">هل ستبيع كامل العقار؟</ion-toggle><br /><br />
+          </ion-item>
+
+          <ion-item *ngIf="isPersentageShown" color="clear">
+            <ion-label position="stacked" class="labellog">النسبة المباعة <sup>*</sup></ion-label>
+            <ion-input class="inputlog" type="text" placeholder="اكتب النسبة"></ion-input>
+            <span class="validationlog">لم يتم ادخال النسبة</span>
+            </ion-item>
+
+        </ion-list>
+      </form>
+
+      <br>
+
+      <ion-button class="btnlogin text-white" fill="clear">
+         حفظ
+      </ion-button>
+          
+      </div>
+    
+    </ng-template>
+  </ion-modal>
 
 
 </ion-content>
