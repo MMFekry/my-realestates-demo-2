@@ -66,7 +66,7 @@
   font-family: 'Graphik Arabic Web Medium', sans-serif!important ;
 }
   .h1  {
-    font-family: 'Graphik Arabic Web Medium', sans-serif!important; font-size: 20px;
+    font-family: var(--fontHelveticaNeue) !important; font-weight: 700 !important; font-size: 20px;
     line-height: 36px; display: inline-block; margin-bottom:15px;
   }
 
@@ -136,11 +136,11 @@ color: #B6BDC6; position: relative;
       }
 
       .Graphik-Reg {
-        font-family: 'Graphik Arabic Web Regular' !important;
+        font-family: var(--fontHelveticaNeue) !important;
       }
 
       .Graphik-bold {
-        font-family: 'Graphik Arabic Web Bold' !important;
+        font-family: var(--fontHelveticaNeue) !important; font-weight: 700 !important;
       }
 
       .HelveticaNeue {
@@ -156,7 +156,7 @@ color: #B6BDC6; position: relative;
       }
 
       .h3   {
-        font-size: 18px !important;
+        font-size: 20px !important;
       }
 
       .m-0  {
@@ -181,6 +181,10 @@ color: #B6BDC6; position: relative;
 
       .px-2  {
         padding-left: 8px !important; padding-right: 8px !important;
+      }
+
+      .d-inline-block  {
+        display:inline-block !important
       }
 
       .headaccordion  {
@@ -220,7 +224,7 @@ box-shadow: none !important;
        }
 
        .servcetaxt  {
-        font-family: 'Graphik Arabic Web Medium', sans-serif!important ; font-size: 17px;
+        font-family: var(--fontHelveticaNeue) !important; font-weight: 700 !important; font-size: 17px;
         color: #000; vertical-align: top; margin-bottom: 0;
        }
 
@@ -231,6 +235,18 @@ box-shadow: none !important;
        .btnlogin   {
         background: var(--colorGreen) !important;  height: 44px;
        }
+
+       .addparty .button-native  {
+        padding: 0 !important;
+     }
+
+
+
+   
+  
+
+     
+
 
    
 

@@ -39,7 +39,11 @@ const routes: Routes = [
   {
     path: 'product-list',
     loadChildren: () => import('./pages/products/product-list/product-list.module').then( m => m.ProductListPageModule)
+  },  {
+    path: 'addparty',
+    loadChildren: () => import('./pages/addparty/addparty.module').then( m => m.AddpartyPageModule)
   },
+
 
 
 ];

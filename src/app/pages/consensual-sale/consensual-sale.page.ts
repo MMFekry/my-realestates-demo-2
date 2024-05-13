@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { ModalController } from '@ionic/angular';
 
 
 @Component({
@@ -9,14 +9,19 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./consensual-sale.page.scss'],
 })
 export class ConsensualSalePage implements OnInit {
- 
-
-  constructor() {
+ isPersentageShown:boolean=true;
+  constructor(private modalCtrl : ModalController) {
    
    }
 
   ngOnInit() {
    
+  }
+
+
+  togglePersentage() 
+  {
+    this.isPersentageShown=!this.isPersentageShown;
   }
 
 }
