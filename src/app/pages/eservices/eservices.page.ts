@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, InfiniteScrollCustomEvent } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 import { FavoriteRealestateResult } from 'src/app/models/realestates/favorite-realestate-result';
 import { RegisteredRealestateResult } from 'src/app/models/realestates/registered-realestate-result';
@@ -18,7 +19,8 @@ export class EservicesPage implements OnInit {
   registredResult!: RegisteredRealestateResult;
   current = 1;
 
-  constructor(private favService: RealestateFavoriteService,
+  constructor(private router: Router, 
+    private favService: RealestateFavoriteService,
     private regService: RegisteredRealestatesService,
     private loadingCtrl: LoadingController
   ) { }
@@ -60,5 +62,9 @@ export class EservicesPage implements OnInit {
      this.registredResult = res;
      console.log(res);
     })
+  }
+
+  goDetails(){
+    this.router.navigate(['/tabs/pages/eservicelv1'])
   }
 }
