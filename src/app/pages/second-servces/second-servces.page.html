@@ -30,7 +30,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-accordion-group>
+  <ion-accordion-group [value]="['first']">
     <ion-accordion value="first" class="mb-3 mt-4">
       <ion-item slot="header" class="headaccordion" color="light">
         <ion-label class="Graphik-bold">الخدمات المتاحة على العقار</ion-label>
@@ -39,7 +39,7 @@
         
         <ion-grid>
           <ion-row>
-            <ion-col class="ion-text-center" size="4"  routerLink="../consensual-sale"> 
+            <ion-col class="ion-text-center" size="4" routerLink="../consensual-sale"> 
               <ion-card class="white-bg noshadow">
                 <ion-card-header class="cardservces">
                   <svg xmlns="http://www.w3.org/2000/svg" width="26.833" height="28.811" viewBox="0 0 26.833 28.811">
@@ -136,12 +136,7 @@
 
       </div>
     </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header" class="headaccordion" color="light">
-        <ion-label class="Graphik-bold">تعاملات على العقار</ion-label>
-      </ion-item>
-      <div class="ion-padding white-bg contentaccordion" slot="content">Second Content</div>
-    </ion-accordion>
+  
     
   </ion-accordion-group>
 
