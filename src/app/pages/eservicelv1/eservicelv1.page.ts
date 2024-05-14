@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eservicelv1',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Eservicelv1Page implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+    let state = router.getCurrentNavigation();
+    var current = state?.extras.state;
+if (current) {
+    console.log(current['data']);
+}
+   }
 
   ngOnInit() {
   }

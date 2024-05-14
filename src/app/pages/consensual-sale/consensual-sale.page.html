@@ -39,18 +39,18 @@
     </ion-button>
 </div>
   
-  <ion-button id="open-custom-dialog" class="addparty ion-no-padding" fill="clear">
+  <ion-button id="open-custom-dialog" class="addparty ion-no-padding" fill="clear" *ngIf="!party">
     <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
          <ion-label class="labeladd">إضافة طرف صادر لصالحه (المشتري)</ion-label><sup>*</sup>
   </ion-button>
 
 
-  <div class="emptyparty ion-text-center">
+  <div class="emptyparty ion-text-center" *ngIf="!party">
     <ion-icon class="nopersons" name="people-outline"></ion-icon>
         <ion-label class="noteempty" expand="block">لم يتم اختيار اطراف</ion-label>
   </div>
 
-  <ion-list class="white-bg mt-3" fill="clear" lines="none">
+  <ion-list class="white-bg mt-3" fill="clear" lines="none" *ngIf="party">
   <ion-item class="m-0">
     <ion-icon color="secondary m" slot="start" name="person-circle-outline"></ion-icon>
 
@@ -58,12 +58,12 @@
     <ion-card-subtitle>شراء كامل العقار</ion-card-subtitle>
 
       <ion-buttons slot="end">
-      <ion-button>
+      <ion-button id="open-custom-dialog" >
         <ion-icon color="success" name="create-outline"></ion-icon>
       </ion-button></ion-buttons>
       <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon color="danger" name="trash-outline"></ion-icon>
+      <ion-button (click)="onDelete()" >
+        <ion-icon color="danger"  name="trash-outline"></ion-icon>
     </ion-button></ion-buttons>
 
   </ion-item>
@@ -90,17 +90,17 @@
 
    
        
-      <form>
+      <form [formGroup]="form">
         <ion-list class="white-bg" lines="none">
         <ion-item class="mb-4" color="clear">
         <ion-label position="stacked" class="labellog">الرقم القومي <sup>*</sup></ion-label>
-        <ion-input class="inputlog" type="text" placeholder="اكتب الرقم القومي"></ion-input>
+        <ion-input class="inputlog" type="text" formControlName="nid" placeholder="اكتب الرقم القومي"></ion-input>
         <span class="validationlog">الرقم القومي غير صحيح</span>
         </ion-item>
 
         <ion-item color="clear">
           <ion-label position="stacked" class="labellog">رقم المصنع <sup>*</sup></ion-label>
-          <ion-input class="inputlog" type="text" placeholder="اكتب رقم المصنع"></ion-input>
+          <ion-input class="inputlog" type="text" formControlName="factory" placeholder="اكتب رقم المصنع"></ion-input>
           <span class="validationlog">رقم المصنع غير صحيح</span>
           </ion-item>
 
@@ -110,7 +110,7 @@
 
           <ion-item *ngIf="isPersentageShown" color="clear">
             <ion-label position="stacked" class="labellog">النسبة المباعة <sup>*</sup></ion-label>
-            <ion-input class="inputlog" type="text" placeholder="اكتب النسبة"></ion-input>
+            <ion-input class="inputlog" type="number" formControlName="percentage" placeholder="اكتب النسبة"></ion-input>
             <span class="validationlog">لم يتم ادخال النسبة</span>
             </ion-item>
 
@@ -119,7 +119,7 @@
 
       <br>
 
-      <ion-button class="btnlogin text-white" slott="end" (click)="modal.dismiss()" fill="clear">
+      <ion-button class="btnlogin text-white" slott="end" [disabled]="!form.valid" (click)="OnSubmit(); modal.dismiss()" fill="clear">
          حفظ
       </ion-button>
           

@@ -6,6 +6,8 @@ import { FavoriteRealestateResult } from 'src/app/models/realestates/favorite-re
 import { RegisteredRealestateResult } from 'src/app/models/realestates/registered-realestate-result';
 import { RealestateFavoriteService } from '../../service/realestates/realestate-favorite.service';
 import { RegisteredRealestatesService } from '../../service/realestates/registered-realestates.service';
+import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-eservices',
@@ -64,7 +66,7 @@ export class EservicesPage implements OnInit {
     })
   }
 
-  goDetails(){
-    this.router.navigate(['/tabs/pages/eservicelv1'])
+  goDetails(reg: RegisteredRealestate){
+    this.router.navigate(['/tabs/pages/eservicelv1', {state: {data : reg}}])
   }
 }
