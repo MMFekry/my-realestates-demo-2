@@ -26,6 +26,18 @@
 
     </ion-card-content>
   </ion-card>
+
+  <div class="d-inline-block w-100 mt-3">
+    <ion-button fill="clear" class="d-inline-block w-50 btnstep">
+        <span>الخطوة الأولي</span>
+        <ion-label class="labelsteps" expand="block">إضافة طرف (المشتري)</ion-label>
+    </ion-button>
+
+    <ion-button fill="clear" class="d-inline-block w-50 btnstep" disabled>
+        <span>الخطوة الثانية</span>
+        <ion-label class="labelsteps" expand="block">تحديد القيمة</ion-label>
+    </ion-button>
+</div>
   
   <ion-button id="open-custom-dialog" class="addparty ion-no-padding" fill="clear">
     <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
@@ -38,6 +50,32 @@
         <ion-label class="noteempty" expand="block">لم يتم اختيار اطراف</ion-label>
   </div>
 
+  <ion-list class="white-bg mt-3" fill="clear" lines="none">
+  <ion-item class="m-0">
+    <ion-icon color="secondary m" slot="start" name="person-circle-outline"></ion-icon>
+
+    <ion-card-title>محمد ابراهيم</ion-card-title>
+    <ion-card-subtitle>شراء كامل العقار</ion-card-subtitle>
+
+      <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon color="success" name="create-outline"></ion-icon>
+      </ion-button></ion-buttons>
+      <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon color="danger" name="trash-outline"></ion-icon>
+    </ion-button></ion-buttons>
+
+  </ion-item>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button fill="clear" routerLink="../salevalue">
+  <ion-label>التالي</ion-label>
+  </ion-fab-button>
+  </ion-fab>
+
+
   <ion-modal id="example-modal" class="popupmodal" #modal trigger="open-custom-dialog">
     <ng-template>
     
@@ -49,6 +87,8 @@
       </ion-toolbar>
 
       <div class="wrapper white-bg formcontent rtldir">
+
+   
        
       <form>
         <ion-list class="white-bg" lines="none">
@@ -79,7 +119,7 @@
 
       <br>
 
-      <ion-button class="btnlogin text-white" fill="clear">
+      <ion-button class="btnlogin text-white" slott="end" (click)="modal.dismiss()" fill="clear">
          حفظ
       </ion-button>
           

@@ -36,6 +36,10 @@ const routes: Routes = [
         path: 'consensual-sale',
         loadChildren: () => import('../consensual-sale/consensual-sale.module').then( m => m.ConsensualSalePageModule)
       },
+      {
+        path: 'salevalue',
+        loadChildren: () => import('../salevalue/salevalue.module').then( m => m.SalevaluePageModule)
+      },
     ]
   },
   {
