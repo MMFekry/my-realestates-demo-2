@@ -97,7 +97,6 @@ export class ConsensualSalePage implements OnInit {
         message:'party updated!'
       });
       await toast.present();
-      //this.router.navigate(['/todo-list'])
       await toast.dismiss();
 
     }, async e => {
@@ -119,9 +118,7 @@ export class ConsensualSalePage implements OnInit {
       message:'party saved'
     });
     await toast.present();
-    //this.router.navigate(['/todo-list'])
     await toast.dismiss();
-    //modal.dismiss();
 
   }, async e => {
     await loading.dismiss();
