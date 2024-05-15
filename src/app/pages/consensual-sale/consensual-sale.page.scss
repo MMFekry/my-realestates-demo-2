@@ -38,7 +38,8 @@
 
  .inputlog  {
   display: block; border: 1px #A6B5C8 solid !important; border-radius: 6px !important; 
-  background-color: transparent !important; 
+  background-color: transparent !important; font-family: var(--fontHelveticaNeue) !important;
+  padding-left: 12px !important; padding-right: 12px !important; line-height: 12px !important;
  }
  .native-input.sc-ion-input-md  {
     padding-left: 12px !important; padding-right: 15px !important;
@@ -69,6 +70,27 @@
     display: inline-block; width: 100%;
    }
 
+   .btnsave  {
+    float:left; font-family: var(--fontHelveticaNeue) !important;
+     background: var(--colorGreen); margin: 15px; border-radius: 6px; font-size: 18px; 
+     font-weight: 600; 
+   }
+
+   .nextbtn  {
+    background: var(--colorGreen) !important; font-family: var(--fontHelveticaNeue) !important;
+    font-size: 16px;  font-weight: 600; display: inline-block; border-radius: 6px; padding-bottom: 4px;
+    padding-top: 0 !important;
+   }
+
+   .cancelbtm  {
+     font-family: var(--fontHelveticaNeue) !important; color: #999;
+    font-size: 16px;  font-weight: 600; display: inline-block;
+   }
+
+   .btnsave button  {
+margin-top: -3px !important;
+    }
+
    .autoheight  {
     --height:auto !important; height:unset !important
    }
@@ -97,12 +119,78 @@
    }
 
 
+   .itempart  {
+    position: relative; padding: 0; 
+   }
+
+   .editpart  {
+    position: absolute; left:36px; top:10px; font-size: 18px; margin-top: 0;
+   }
+
+   .deletepart  {
+    position: absolute; left:-13px; top:10px; font-size: 18px; margin-top: 0;
+   }
+
+   .itempart .item-native  {
+    background: #fff !important;
+   }
+
+   .iconpart  {
+    position: absolute; top:12px; right:0; font-size: 28px;
+   }
+
+   .partname  {
+    margin: 0 0 25px;
+  color: #1C304C;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: var(--fontHelveticaNeue) !important;
+  width: calc(100% - 90px);
+  padding: 0 20px 0 0;
+   }
+
+   .subtitlritem   {
+    position: absolute; right:40px; bottom:0; color: #A6B5C8; font-size: 13px;
+    font-family: var(--fontHelveticaNeue) !important;
+   }
+
+   .bordered-item {
+    border: solid 1px rgba(0,0,0,0.07);
+  }
+
+  .toggoleframe  {
+    margin: 15px; max-width: calc(100% - 30px); border-radius: 6px;
+  }
+
+   .no-highlight-focus {
+    --highlight-color-focused: transparent;
+  }
+
+  .unitgold  {
+    position: absolute;
+    top: 46px; padding-top: 5px;
+    height: 46px; text-align: center;
+    width: 46px;
+    background: #F5F5F5; border-left: 2px #BA9742 solid;
+    left: 1px;
+    color: #BA9742;
+    font-family: var(--fontHelveticaNeue) !important;
+    font-weight: 600;
+    z-index: 2;
+  }
+
  ion-modal#example-modal {
     --height:auto; --max-width:90%; --background:rgba(0,0,0,0.24);
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
   
+
+  ion-modal#example-modal2 {
+    --height:auto; --max-width:90%; --background:rgba(0,0,0,0.24);
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
   
   ion-modal ion-toolbar {
     --background: #fff;

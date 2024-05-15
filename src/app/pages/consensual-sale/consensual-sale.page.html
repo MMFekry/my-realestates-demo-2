@@ -50,6 +50,7 @@
         <ion-label class="noteempty" expand="block">لم يتم اختيار اطراف</ion-label>
   </div>
 
+<<<<<<< HEAD
   <ion-list class="white-bg mt-3 px-3" fill="clear" lines="none" *ngIf="party">
     <ion-item fill="clear" color="transparent" class="itempart m-0">
       <ion-icon color="color-dark" class="m-0 iconpart" slot="start" name="person-circle-outline"></ion-icon>
@@ -63,16 +64,37 @@
    
     <ion-button class="deletepart" fill="clear" (click)="onDelete()">
       <ion-icon color="danger" name="trash-outline"></ion-icon>
+=======
+  <ion-list class="white-bg mt-3 px-3" fill="clear" lines="none">
+  <ion-item fill="clear" color="transparent" class="itempart m-0">
+    <ion-icon color="color-dark" class="m-0 iconpart" slot="start" name="person-circle-outline"></ion-icon>
+
+    <h2 class="partname" expand="block">محمد ابراهيم</h2>
+    <small class="subtitlritem">شراء كامل العقار</small>
+
+  
+      <ion-button class="editpart" id="open-custom-dialog2" fill="clear">
+        <ion-icon color="darkgreen" name="create-outline"></ion-icon>
+      </ion-button>
+     
+      <ion-button class="deletepart" fill="clear">
+        <ion-icon color="danger" name="trash-outline"></ion-icon>
+>>>>>>> baf595d050b3bbdf7b4b29cb7a84bf1547b7bc28
     </ion-button>
 
   </ion-item>
 </ion-list>
 
-<ion-fab vertical="bottom" horizontal="start" slot="fixed">
-  <ion-fab-button fill="clear" routerLink="../salevalue">
-  <ion-label>التالي</ion-label>
-  </ion-fab-button>
+<ion-fab vertical="bottom" fill="clear" horizontal="start" slot="fixed">
+  <ion-button fixed bottom fill="clear" class="cancelbtm">
+    الغاء
+  </ion-button>
+  <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../salevalue">
+    التالي
+  </ion-button>
   </ion-fab>
+
+ 
 
 
   <ion-modal id="example-modal" class="popupmodal" #modal trigger="open-custom-dialog">
@@ -91,25 +113,29 @@
        
       <form [formGroup]="form">
         <ion-list class="white-bg" lines="none">
-        <ion-item class="mb-4" color="clear">
+        <ion-item class="mb-4 no-highlight-focus" color="clear">
         <ion-label position="stacked" class="labellog">الرقم القومي <sup>*</sup></ion-label>
         <ion-input class="inputlog" type="text" formControlName="nid" placeholder="اكتب الرقم القومي"></ion-input>
         <span class="validationlog">الرقم القومي غير صحيح</span>
         </ion-item>
 
-        <ion-item color="clear">
+        <ion-item color="clear" class="no-highlight-focus">
           <ion-label position="stacked" class="labellog">رقم المصنع <sup>*</sup></ion-label>
           <ion-input class="inputlog" type="text" formControlName="factory" placeholder="اكتب رقم المصنع"></ion-input>
           <span class="validationlog">رقم المصنع غير صحيح</span>
           </ion-item>
 
-          <ion-item class="mb-4" color="clear">
+          <ion-item class="mb-4 bordered-item toggoleframe" color="clear">
           <ion-toggle (click)="togglePersentage()" labelPlacement="start">هل ستبيع كامل العقار؟</ion-toggle><br /><br />
           </ion-item>
 
-          <ion-item *ngIf="isPersentageShown" color="clear">
+          <ion-item *ngIf="isPersentageShown" color="clear" class="no-highlight-focus position-relative">
             <ion-label position="stacked" class="labellog">النسبة المباعة <sup>*</sup></ion-label>
+<<<<<<< HEAD
             <ion-input class="inputlog" type="number" formControlName="percentage" placeholder="اكتب النسبة"></ion-input>
+=======
+            <ion-input class="inputlog" type="text" placeholder="اكتب النسبة"></ion-input>
+>>>>>>> baf595d050b3bbdf7b4b29cb7a84bf1547b7bc28
             <div class="unitgold">%</div>
             <span class="validationlog">لم يتم ادخال النسبة</span>
             </ion-item>
@@ -119,8 +145,65 @@
 
       <br>
 
+<<<<<<< HEAD
       <ion-button class="btnsave text-white" slott="start" [disabled]="!form.valid" (click)="OnSubmit(); modal.dismiss()" fill="clear">
+=======
+      <ion-button class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear">
+>>>>>>> baf595d050b3bbdf7b4b29cb7a84bf1547b7bc28
          حفظ
+      </ion-button>
+          
+      </div>
+    
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal id="example-modal2" class="popupmodal" #modal trigger="open-custom-dialog2">
+    <ng-template>
+    
+      <ion-toolbar class="rtldir">
+        <ion-title class="titlepoup">ادخل بيانات الطرف</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()"> <ion-icon name="close-outline"></ion-icon></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+      <div class="wrapper white-bg formcontent rtldir">
+
+   
+       
+      <form>
+        <ion-list class="white-bg" lines="none">
+        <ion-item class="mb-4" color="clear" class="no-highlight-focus">
+        <ion-label position="stacked" class="labellog">الرقم القومي <sup>*</sup></ion-label>
+        <ion-input class="inputlog" type="text" value="265888885554445" placeholder="اكتب الرقم القومي"></ion-input>
+        <span class="validationlog">الرقم القومي غير صحيح</span>
+        </ion-item>
+
+        <ion-item color="clear" class="no-highlight-focus">
+          <ion-label position="stacked" class="labellog">رقم المصنع <sup>*</sup></ion-label>
+          <ion-input class="inputlog" type="text" value="5W44eR44" placeholder="اكتب رقم المصنع"></ion-input>
+          <span class="validationlog">رقم المصنع غير صحيح</span>
+          </ion-item>
+
+          <ion-item class="mb-4 bordered-item toggoleframe" color="clear">
+            <ion-toggle (click)="togglePersentage()" labelPlacement="start">هل ستبيع كامل العقار؟</ion-toggle><br /><br />
+            </ion-item>
+
+          <ion-item *ngIf="isPersentageShown" color="clear" class="no-highlight-focus position-relative">
+            <ion-label position="stacked" class="labellog">النسبة المباعة <sup>*</sup></ion-label>
+            <ion-input class="inputlog" type="text" value="50" placeholder="اكتب النسبة"></ion-input>
+            <div class="unitgold">%</div>
+            <span class="validationlog">لم يتم ادخال النسبة</span>
+            </ion-item>
+
+        </ion-list>
+      </form>
+
+      <br>
+
+      <ion-button class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear">
+         تحديث
       </ion-button>
           
       </div>

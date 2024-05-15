@@ -1,0 +1,24 @@
+.successCard  {
+    padding:12px 20px; display: inline-block; width: 100%; 
+    background: #DEEDEB; border-radius: 10px;
+}
+
+.iconsuccess  {
+    font-size: 35px; margin-left: 5px; color: var(--colorGreen);
+    position: relative; top:4px
+}
+
+.titlesuccessful  {
+   font-size: 20px; font-weight: 700; font-family: var(--fontHelveticaNeue) !important; 
+   color: var(--colorGreen);
+}
+
+.itemreport  {
+    font-size: 17px; font-weight: 600; font-family: var(--fontHelveticaNeue) !important; 
+    color: var(--colordarkblue); 
+ }
+
+ .itemvalue  {
+    font-size: 17px; font-family: var(--fontHelveticaNeue) !important; 
+    color: #1C304C; 
+ }
