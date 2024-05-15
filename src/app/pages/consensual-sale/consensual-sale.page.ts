@@ -16,7 +16,7 @@ export class ConsensualSalePage implements OnInit {
  isPersentageShown:boolean=true;
  form: FormGroup= new FormGroup({});
  alert : AlertController = new AlertController();
-
+ map = new Map<string, Party>();
  party!: Party;
   constructor(private modalCtrl : ModalController, private fb: FormBuilder,
     private service: PartyService, private router: Router,

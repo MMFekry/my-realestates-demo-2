@@ -50,21 +50,20 @@
         <ion-label class="noteempty" expand="block">لم يتم اختيار اطراف</ion-label>
   </div>
 
-  <ion-list class="white-bg mt-3" fill="clear" lines="none" *ngIf="party">
-  <ion-item class="m-0">
-    <ion-icon color="secondary m" slot="start" name="person-circle-outline"></ion-icon>
+  <ion-list class="white-bg mt-3 px-3" fill="clear" lines="none" *ngIf="party">
+    <ion-item fill="clear" color="transparent" class="itempart m-0">
+      <ion-icon color="color-dark" class="m-0 iconpart" slot="start" name="person-circle-outline"></ion-icon>
 
-    <ion-card-title>محمد ابراهيم</ion-card-title>
-    <ion-card-subtitle>شراء كامل العقار</ion-card-subtitle>
-
-      <ion-buttons slot="end">
-      <ion-button id="open-custom-dialog" >
-        <ion-icon color="success" name="create-outline"></ion-icon>
-      </ion-button></ion-buttons>
-      <ion-buttons slot="end">
-      <ion-button (click)="onDelete()" >
-        <ion-icon color="danger"  name="trash-outline"></ion-icon>
-    </ion-button></ion-buttons>
+    <h2 class="partname" expand="block">محمد ابراهيم</h2>
+    <small class="subtitlritem">شراء كامل العقار</small>
+    
+    <ion-button class="editpart" id="open-custom-dialog" fill="clear">
+      <ion-icon color="darkgreen" name="create-outline"></ion-icon>
+    </ion-button>
+   
+    <ion-button class="deletepart" fill="clear" (click)="onDelete()">
+      <ion-icon color="danger" name="trash-outline"></ion-icon>
+    </ion-button>
 
   </ion-item>
 </ion-list>
@@ -111,6 +110,7 @@
           <ion-item *ngIf="isPersentageShown" color="clear">
             <ion-label position="stacked" class="labellog">النسبة المباعة <sup>*</sup></ion-label>
             <ion-input class="inputlog" type="number" formControlName="percentage" placeholder="اكتب النسبة"></ion-input>
+            <div class="unitgold">%</div>
             <span class="validationlog">لم يتم ادخال النسبة</span>
             </ion-item>
 
@@ -119,7 +119,7 @@
 
       <br>
 
-      <ion-button class="btnlogin text-white" slott="end" [disabled]="!form.valid" (click)="OnSubmit(); modal.dismiss()" fill="clear">
+      <ion-button class="btnsave text-white" slott="start" [disabled]="!form.valid" (click)="OnSubmit(); modal.dismiss()" fill="clear">
          حفظ
       </ion-button>
           
