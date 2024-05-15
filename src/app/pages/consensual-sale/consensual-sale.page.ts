@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { PartyService } from 'src/app/service/parties/party.service';
 import { Party } from 'src/app/@shared/models/party';
+import { RequestService } from 'src/app/service/requests/request.service';
+import { Person, RequestInputModel, RequestOutputModel } from 'src/app/models/Requests/request-input-model';
 
 
 @Component({
@@ -18,10 +20,12 @@ export class ConsensualSalePage implements OnInit {
  alert : AlertController = new AlertController();
  map = new Map<string, Party>();
  party!: Party;
+ output!: RequestOutputModel;
+
   constructor(private modalCtrl : ModalController, private fb: FormBuilder,
-    private service: PartyService, private router: Router,
-    private loadingCtrl: LoadingController, private tosterCtrl : ToastController
-    //private alert: AlertController
+    private partyService: PartyService, private router: Router,
+    private loadingCtrl: LoadingController, private tosterCtrl : ToastController,
+    private requestService: RequestService
   ) {
     this.CreateForm();
 
@@ -90,7 +94,7 @@ export class ConsensualSalePage implements OnInit {
     this.party = {
       ...form
     }
-    this.service.updateData('parties/'+ this.party.Id, this.party).subscribe(async res => 
+    this.partyService.updateData('parties/'+ this.party.Id, this.party).subscribe(async res => 
     {
       await loading.dismiss();
       let toast = await this.tosterCtrl.create({
@@ -111,7 +115,7 @@ export class ConsensualSalePage implements OnInit {
    this.party = {
     ...form
   }
-  this.service.postData('parties', this.party).subscribe(async res => 
+  this.partyService.postData('parties', this.party).subscribe(async res => 
   {
     await loading.dismiss();
     let toast = await this.tosterCtrl.create({
@@ -129,5 +133,43 @@ export class ConsensualSalePage implements OnInit {
     await toast.dismiss();
   });
   }
-}
+  }
+
+  async CreateRequest(){
+    debugger;
+
+    let loading = await this.loadingCtrl.create({});
+    await loading.present();
+
+    this.requestService.postData().subscribe(async res => 
+      {
+
+        await loading.dismiss();
+        this.output = res;
+        console.log(this.output);
+        if(this.output.ResponseCode == 200){
+          let toast = await this.tosterCtrl.create({
+            message: this.output.ResponseMessage
+          });
+          await toast.present();
+
+          this.router.navigate(['../salevalue'])
+
+        }
+        else{
+          let toast = await this.tosterCtrl.create({
+            message: this.output.ResponseMessage
+          });
+          await toast.present();
+
+        }
+
+      }, async e => {
+        await loading.dismiss();
+        let toast = await this.tosterCtrl.create({
+          message: e.message
+        });
+        await toast.present();
+      });
+  }
 }
