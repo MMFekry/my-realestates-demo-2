@@ -38,7 +38,8 @@
 
  .inputlog  {
   display: block; border: 1px #A6B5C8 solid !important; border-radius: 6px !important; 
-  background-color: #fff !important; 
+  background-color: #fff !important; font-family: var(--fontHelveticaNeue) !important;
+  padding-right: 12px !important; line-height: 12px !important;
  }
  .native-input.sc-ion-input-md  {
     padding-left: 12px !important; padding-right: 15px !important;
@@ -69,6 +70,27 @@
     display: inline-block; width: 100%;
    }
 
+   .btnsave  {
+    float:left; font-family: var(--fontHelveticaNeue) !important;
+     background: var(--colorGreen); margin: 15px; border-radius: 6px; font-size: 18px; 
+     font-weight: 600; 
+   }
+
+   .nextbtn  {
+    background: var(--colorGreen) !important; font-family: var(--fontHelveticaNeue) !important;
+    font-size: 16px;  font-weight: 600; display: inline-block; border-radius: 6px; padding-bottom: 4px;
+    padding-top: 0 !important;
+   }
+
+   .cancelbtm  {
+     font-family: var(--fontHelveticaNeue) !important; color: #999;
+    font-size: 16px;  font-weight: 600; display: inline-block;
+   }
+
+   .btnsave button  {
+margin-top: -3px !important;
+    }
+
    .autoheight  {
     --height:auto !important; height:unset !important
    }
@@ -88,7 +110,7 @@
    .labelsteps  {
     padding-top: 25px; text-align: right; padding-bottom: 7px; color: var(--colorGreen);
     font-family: var(--fontHelveticaNeue) !important; width:100%;
-        font-weight: 700; font-size: 15px;
+        font-weight: 700; font-size: 15px; min-height: 47px;
    }
 
    .btnstep .button-native  {
@@ -96,18 +118,78 @@
     -webkit-box-shadow:none;
    }
 
+   .btnstep.cpmpeleted  {
+    background: var(--colorGreen) !important; border: 1px var(--colorGreen) solid;
+    --box-shadow:none; color: #fff !important;
+    box-shadow: none;
+    -webkit-box-shadow:none; 
+   span  {
+       position: absolute; top:14px; right:30px; color: #fff; 
+       font-family: var(--fontHelveticaNeue) !important; 
+       font-weight: 600; font-size: 15px;
+   }
+  }
 
- ion-modal#example-modal {
-    --height:auto; --max-width:90%; --background:rgba(0,0,0,0.24);
-    --border-radius: 16px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  .btnstep.cpmpeleted span::before  {
+    position: absolute; top:2px; right:-26px; content:'✓'; color: var(--colorGreen);
+    background: #fff; width: 18px; height: 18px; line-height: 16px; text-align: center;
+    font-size: 11px; border-radius: 50%;
+}
+
+  .cpmpeleted .labelsteps  {
+    font-size: 0;
+   }
+
+
+   .itempart  {
+    position: relative; padding: 0; 
+   }
+
+
+   .itempart .item-native  {
+    background: #fff !important;
+   }
+
+
+   .partname  {
+    margin: 0 0 25px;
+  color: #1C304C;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: var(--fontHelveticaNeue) !important;
+  width: calc(100% - 90px);
+  padding: 0 20px 0 0;
+   }
+
+   .subtitlritem   {
+    position: absolute; right:40px; bottom:0; color: #A6B5C8; font-size: 13px;
+    font-family: var(--fontHelveticaNeue) !important;
+   }
+
+   .no-validation-line .item-inner {
+    box-shadow: none !important;
   }
-  
-  
-  ion-modal ion-toolbar {
-    --background: #fff;
-    --color: #000;
-    border:none;
-    padding-top: 0 !important;
+
+  .item-inner {
+    box-shadow: none !important;
   }
+
+  .no-highlight-focus {
+    --highlight-color-focused: transparent;
+  }
+
+  .unitgold  {
+    position: absolute;
+    top: 46px;
+    height: 46px; text-align: center;
+    width: 46px;
+    background: #F5F5F5; border-left: 2px #BA9742 solid;
+    left: 1px;
+    color: #BA9742;
+    font-family: var(--fontHelveticaNeue) !important;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+
 

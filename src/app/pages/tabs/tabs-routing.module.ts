@@ -40,6 +40,10 @@ const routes: Routes = [
         path: 'salevalue',
         loadChildren: () => import('../salevalue/salevalue.module').then( m => m.SalevaluePageModule)
       },
+      {
+        path: 'addparty',
+        loadChildren: () => import('../addparty/addparty.module').then( m => m.AddpartyPageModule)
+      },
     ]
   },
   {
