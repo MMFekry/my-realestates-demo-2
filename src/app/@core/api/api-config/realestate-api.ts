@@ -10,4 +10,7 @@ export const REALESTATE_API = {
 export const REQUEST_API = {
     create: 'CreateEstateRequest/CreateEstateRequest'
 }
+export const TRANS_API = {
+    create: 'Transaction/AddTransactions'
+}
 

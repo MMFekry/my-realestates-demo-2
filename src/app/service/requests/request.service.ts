@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { environment } from "src/environments/environment";
-import { Person, RequestInputModel, RequestOutputModel } from 'src/app/models/Requests/request-input-model';
+import { RequestInputModel } from 'src/app/models/Requests/request-input-model';
+import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
+import { Person } from "src/app/models/Requests/Person";
 import { REQUEST_API } from "src/app/@core/api/api-config/realestate-api";
 
 @Injectable({
@@ -18,7 +20,7 @@ Person! : Person;
     let person = this.CreatePerson();
     let request = {
       DelegateType: 7,
-      RequestID: 0,
+      RequestID: 11206,
       DelegatedPersonName: 'محمد ابراهيم',
       Person: person
     } as RequestInputModel
@@ -29,14 +31,14 @@ Person! : Person;
 
   CreatePerson(): Person{
     let person = {
-      NationalID: '29010122606055',
+      NationalID: '28810122906039',
       NationalIDType: 19,//رقم قومي
       Address: 'ش.احمد عصمت-القاهره',
       NationalityID: 102,//جنسيه
-      Email: 'M.Ibo@gmail.com',
+      Email: 'M.alu@gmail.com',
       PhoneNumber: '01066359012',
       FirstName: 'محمد',
-      SecondName: 'ابراهيم',
+      SecondName: 'على',
       ReligionID: 1//الديانه
     } as Person;
     return person;

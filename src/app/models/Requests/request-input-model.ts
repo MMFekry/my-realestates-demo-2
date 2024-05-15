@@ -1,4 +1,5 @@
 import { GGHeader } from "../GG/ggheader"
+import { Person } from "./Person"
 
 export interface RequestInputModel {
     GGHeader: GGHeader,
@@ -8,22 +9,4 @@ export interface RequestInputModel {
     Person: Person
 }
 
-export interface Person
-{
-    NationalID: string,
-    NationalIDType: number,
-    Address: string,
-    NationalityID: number,
-    Email: string,
-    PhoneNumber: string,
-    FirstName: string,
-    SecondName: string,
-    ReligionID: number
-  }
 
-  export interface RequestOutputModel{
-        RequestID: number,
-        Requests_RequestsID: number,
-        ResponseCode: number,
-        ResponseMessage: string
-  }

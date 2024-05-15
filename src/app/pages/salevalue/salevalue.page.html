@@ -44,7 +44,7 @@
   <ion-list lines="none">
   <ion-item class="mb-4 no-highlight-focus position-relative" color="clear">
   <ion-label position="stacked" class="labellog">القيمة<sup>*</sup></ion-label>
-  <ion-input class="inputlog no-validation-line" type="numder" placeholder="اكتب القيمة"></ion-input>
+  <ion-input class="inputlog no-validation-line" type="number" placeholder="اكتب القيمة"></ion-input>
   <div class="unitgold">جم</div>
   <span class="validationlog">ادخل القيمة</span>
   </ion-item>
@@ -60,7 +60,7 @@
   <ion-button fixed bottom fill="clear" class="cancelbtm">
     الغاء
   </ion-button>
-  <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../addparty">
+  <ion-button class="nextbtn text-white" fill="clear" fixed bottom (click)="PostData()">
     تم
   </ion-button>
   </ion-fab>

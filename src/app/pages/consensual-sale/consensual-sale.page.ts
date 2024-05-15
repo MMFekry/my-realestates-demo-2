@@ -6,7 +6,9 @@ import { LoadingController, ToastController } from '@ionic/angular';
 import { PartyService } from 'src/app/service/parties/party.service';
 import { Party } from 'src/app/@shared/models/party';
 import { RequestService } from 'src/app/service/requests/request.service';
-import { Person, RequestInputModel, RequestOutputModel } from 'src/app/models/Requests/request-input-model';
+import { RequestInputModel } from 'src/app/models/Requests/request-input-model';
+import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
+import { Person } from "src/app/models/Requests/Person";
 
 
 @Component({
@@ -136,6 +138,8 @@ export class ConsensualSalePage implements OnInit {
   }
 
   async CreateRequest(){
+    this.router.navigate(['tabs/pages/salevalue'])
+
     debugger;
 
     let loading = await this.loadingCtrl.create({});
@@ -153,7 +157,7 @@ export class ConsensualSalePage implements OnInit {
           });
           await toast.present();
 
-          this.router.navigate(['../salevalue'])
+          //this.router.navigate(['tabs/pages/salevalue'])
 
         }
         else{
