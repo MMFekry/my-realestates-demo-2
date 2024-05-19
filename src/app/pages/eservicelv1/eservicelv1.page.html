@@ -28,7 +28,7 @@
   </ion-card>
 
 
-  <ion-accordion-group>
+  <ion-accordion-group [value]="['first']">
     <ion-accordion value="first" class="mb-3 mt-4">
       <ion-item slot="header" class="headaccordion" color="light">
         <ion-label class="Graphik-bold">الخدمات المتاحة على العقار</ion-label>
@@ -230,12 +230,6 @@
         </ion-grid>
 
       </div>
-    </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header" class="headaccordion" color="light">
-        <ion-label class="Graphik-bold">تعاملات على العقار</ion-label>
-      </ion-item>
-      <div class="ion-padding white-bg contentaccordion" slot="content">Second Content</div>
     </ion-accordion>
     
   </ion-accordion-group>

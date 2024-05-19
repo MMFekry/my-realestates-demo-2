@@ -38,8 +38,8 @@
 
  .inputlog  {
   display: block; border: 1px #A6B5C8 solid !important; border-radius: 6px !important; 
-  background-color: transparent !important; font-family: var(--fontHelveticaNeue) !important;
-  padding-left: 12px !important; padding-right: 12px !important; line-height: 12px !important;
+  background-color: #fff !important; font-family: var(--fontHelveticaNeue) !important;
+  padding-right: 12px !important; line-height: 12px !important;
  }
  .native-input.sc-ion-input-md  {
     padding-left: 12px !important; padding-right: 15px !important;
@@ -110,7 +110,7 @@ margin-top: -3px !important;
    .labelsteps  {
     padding-top: 25px; text-align: right; padding-bottom: 7px; color: var(--colorGreen);
     font-family: var(--fontHelveticaNeue) !important; width:100%;
-        font-weight: 700; font-size: 15px;
+        font-weight: 700; font-size: 15px; min-height: 47px;
    }
 
    .btnstep .button-native  {
@@ -118,26 +118,38 @@ margin-top: -3px !important;
     -webkit-box-shadow:none;
    }
 
+   .btnstep.cpmpeleted  {
+    background: var(--colorGreen) !important; border: 1px var(--colorGreen) solid;
+    --box-shadow:none; color: #fff !important;
+    box-shadow: none;
+    -webkit-box-shadow:none; 
+   span  {
+       position: absolute; top:14px; right:30px; color: #fff; 
+       font-family: var(--fontHelveticaNeue) !important; 
+       font-weight: 600; font-size: 15px;
+   }
+  }
+
+  .btnstep.cpmpeleted span::before  {
+    position: absolute; top:2px; right:-26px; content:'✓'; color: var(--colorGreen);
+    background: #fff; width: 18px; height: 18px; line-height: 16px; text-align: center;
+    font-size: 11px; border-radius: 50%;
+}
+
+  .cpmpeleted .labelsteps  {
+    font-size: 0;
+   }
+
 
    .itempart  {
     position: relative; padding: 0; 
    }
 
-   .editpart  {
-    position: absolute; left:36px; top:10px; font-size: 18px; margin-top: 0;
-   }
-
-   .deletepart  {
-    position: absolute; left:-13px; top:10px; font-size: 18px; margin-top: 0;
-   }
 
    .itempart .item-native  {
     background: #fff !important;
    }
 
-   .iconpart  {
-    position: absolute; top:12px; right:0; font-size: 28px;
-   }
 
    .partname  {
     margin: 0 0 25px;
@@ -154,21 +166,21 @@ margin-top: -3px !important;
     font-family: var(--fontHelveticaNeue) !important;
    }
 
-   .bordered-item {
-    border: solid 1px rgba(0,0,0,0.07);
+   .no-validation-line .item-inner {
+    box-shadow: none !important;
   }
 
-  .toggoleframe  {
-    margin: 15px; max-width: calc(100% - 30px); border-radius: 6px;
+  .item-inner {
+    box-shadow: none !important;
   }
 
-   .no-highlight-focus {
+  .no-highlight-focus {
     --highlight-color-focused: transparent;
   }
 
   .unitgold  {
     position: absolute;
-    top: 46px; padding-top: 5px;
+    top: 46px;
     height: 46px; text-align: center;
     width: 46px;
     background: #F5F5F5; border-left: 2px #BA9742 solid;
@@ -179,23 +191,5 @@ margin-top: -3px !important;
     z-index: 2;
   }
 
- ion-modal#example-modal {
-    --height:auto; --max-width:90%; --background:rgba(0,0,0,0.24);
-    --border-radius: 16px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
-  
 
-  ion-modal#example-modal2 {
-    --height:auto; --max-width:90%; --background:rgba(0,0,0,0.24);
-    --border-radius: 16px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
-  
-  ion-modal ion-toolbar {
-    --background: #fff;
-    --color: #000;
-    border:none;
-    padding-top: 0 !important;
-  }
 

@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center">
+
+   <!-- <ion-buttons class="backright" routerLink="../second-servces" >
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+   </ion-buttons>  -->
+
+    <ion-title class="h1 text-white ion-text-center">بيع رضائي</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding mb-3">
+
+  <ion-card class="white-bg greenLne m-0">
+    <ion-card-header>
+    <ion-card-title class="Graphik-bold h3">٥ شارع أحمد عصمت القاهرة القاهرة</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
+        <ion-label>عقار مسجل</ion-label>
+        </ion-chip>
+
+          <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
+            <ion-label>وحدة</ion-label>
+            </ion-chip>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div class="d-inline-block w-100 mt-3">
+    <ion-button fill="clear" class="d-inline-block w-50 btnstep cpmpeleted" routerLink="../consensual-sale">
+        <span>الخطوة الأولي</span>
+        <ion-label class="labelsteps" expand="block">إضافة طرف (المشتري)</ion-label>
+    </ion-button>
+
+    <ion-button fill="clear" class="d-inline-block w-50 btnstep">
+        <span>الخطوة الثانية</span>
+        <ion-label class="labelsteps" expand="block">تحديد القيمة</ion-label>
+    </ion-button>
+</div>
+  
+ 
+<form>
+  <ion-list lines="none">
+  <ion-item class="mb-4 no-highlight-focus position-relative" color="clear">
+  <ion-label position="stacked" class="labellog">القيمة<sup>*</sup></ion-label>
+  <ion-input class="inputlog no-validation-line" type="numder" placeholder="اكتب القيمة"></ion-input>
+  <div class="unitgold">جم</div>
+  <span class="validationlog">ادخل القيمة</span>
+  </ion-item>
+
+
+
+  </ion-list>
+</form>
+
+
+
+<ion-fab vertical="bottom" fill="clear" horizontal="start" slot="fixed">
+  <ion-button fixed bottom fill="clear" class="cancelbtm">
+    الغاء
+  </ion-button>
+  <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../addparty">
+    تم
+  </ion-button>
+  </ion-fab>
+
+
+
+
+</ion-content>
