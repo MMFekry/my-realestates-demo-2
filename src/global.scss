@@ -216,6 +216,8 @@ color: #B6BDC6; position: relative;
 box-shadow: none !important;
        }
 
+  
+
        .cardservces   {
         width:72px; height:72px; border-radius: 50%; margin-bottom: 8px; vertical-align: top;
         background: var(--colorGreen) !important; display: inline-block; position: relative;
@@ -259,6 +261,21 @@ box-shadow: none !important;
      .position-relative  {
       position: relative !important;
      }
+
+     ion-icon.select-icon  {
+      position: absolute !important; left:10px !important
+     }
+
+ 
+
+
+
+
+
+ 
+
+
+
 
 
 
