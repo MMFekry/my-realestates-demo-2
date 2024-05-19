@@ -1,0 +1,19 @@
+.cardunits   {
+    width:72px; height:72px; border-radius: 50%; margin-bottom: 8px; vertical-align: top;
+    background: var(--colorGold) !important; display: inline-block; position: relative;
+   }
+
+   .labelunittype  {
+    position: absolute; top:50%; left:50%; color: #F9F4EA; 
+    width: 64px; line-height: 19px; max-height: 57px; overflow: hidden; 
+    font-family: var(--fontHelveticaNeue) !important; font-size: 14px;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+   }
+
+   .titlerealestatetype  {
+    font-family: var(--fontHelveticaNeue) !important; font-size: 18px;
+    font-weight: 700;
+   }
+
+  

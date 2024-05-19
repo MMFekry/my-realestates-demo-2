@@ -5,11 +5,11 @@
   <ion-toolbar>
       <ion-segment class="tabrealestat" [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
          <ion-segment-button value="registedUnits">
-            <ion-label>عقار مسجل</ion-label>
+            <ion-label class="heightset m-0">عقار مسجل</ion-label>
          </ion-segment-button>
 
          <ion-segment-button value="intertedUnites">
-          <ion-label>عقار مهتم به</ion-label>
+          <ion-label class="heightset m-0">عقار مهتم به</ion-label>
        </ion-segment-button>
 
       </ion-segment>
@@ -28,7 +28,7 @@
       
         <ion-item color="none" class="rowrealestat">
           <h5 size="large" slot="start">وحدة</h5>
-          <ion-label>
+          <ion-label class="m-0">
           <h2>٥ شارع أحمد عصمت القاهرة القاهرة</h2>
           <p>محافظة القاهرة</p>
         </ion-label>
@@ -38,7 +38,7 @@
           </ion-item>
           <ion-item color="none" class="rowrealestat">
             <h5 size="large" slot="start">وحدة</h5>
-            <ion-label>
+            <ion-label class="m-0">
             <h2>٧ شارع أحمد عصمت القاهرة القاهرة</h2>
             <p>محافظة القاهرة</p>
           </ion-label>
@@ -49,7 +49,7 @@
 
             <ion-item color="none" class="rowrealestat">
               <h5 size="large" slot="start">وحدة</h5>
-              <ion-label>
+              <ion-label class="m-0">
               <h2>٢ شارع أحمد سعيد الوايلي - القاهرة</h2>
               <p>محافظة القاهرة</p>
             </ion-label>
@@ -60,7 +60,7 @@
 
               <ion-item color="none" class="rowrealestat">
                 <h5 size="large" slot="start">أرض مبنية</h5>
-                <ion-label>
+                <ion-label class="m-0">
                 <h2>١١شارع عمر مكرم قصر النيل - القاهرة</h2>
                 <p>محافظة القاهرة</p>
               </ion-label>
@@ -71,7 +71,7 @@
 
                 <ion-item color="none" class="rowrealestat">
                   <h5 size="large" slot="start">وحدة</h5>
-                  <ion-label>
+                  <ion-label class="m-0">
                   <h2>٤ شارع بهاء الدين الهرم - الجيزة</h2>
                   <p>محافظة الجيزة</p>
                   </ion-label>
@@ -90,7 +90,7 @@
       
         <ion-item color="none" class="rowrealestat" *ngFor="let prop of result.data; let i = index">
           <h5 size="large" slot="start">{{prop.PropertyTypeName}}</h5>
-          <ion-label>
+          <ion-label class="m-0">
           <div *ngFor="let adres of prop.LandsInfo">
             <h2>{{adres.Number+ ',' +adres.DistrictName+ ',' +adres.PoliceOffice+ ',' +adres.Governorate}}</h2>
             <p>محافظة {{adres.Governorate}}</p>
@@ -129,8 +129,17 @@
 
           
         </ion-list>
+
+       
+
     </div>
 
   </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button class="btnaddunit" routerLink="../realestatetypes">
+    <ion-icon class="sizesvg" name="add"></ion-icon>
+    </ion-fab-button>
+    </ion-fab>
 
 </ion-content>
