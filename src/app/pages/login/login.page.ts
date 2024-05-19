@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
 
   }
   OnGoDesign(){
-    this.router.navigate(['/tabs'])
+    this.router.navigate(['/tabs/pages/eservices'])
 
   }
 }

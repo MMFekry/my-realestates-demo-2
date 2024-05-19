@@ -21,7 +21,7 @@ export class TransactionService {
     ContractType: 7,
     Court: 0,
     ClaimNo: 0,
-    //TransactionDate: Date,
+    TransactionDate: new Date(),
     Price: price,
     JudgmentFees: 0,
     StayPeriod: 0,
