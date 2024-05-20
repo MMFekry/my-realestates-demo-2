@@ -39,10 +39,10 @@ export class SalevaluePage implements OnInit {
           let toast = await this.tosterCtrl.create({
             message: this.output.ResponseMessage
           });
-          await toast.present();
+          //await toast.present();
 
           //this.router.navigate(['../addparty'])
-          this.router.navigate(['tabs/pages/addparty'])
+          this.router.navigate(['tabs/pages/feessale'])
 
         }
         else{
@@ -50,8 +50,6 @@ export class SalevaluePage implements OnInit {
             message: this.output.ResponseMessage
           });
           await toast.present();
-          //this.router.navigate(['tabs/pages/addparty'])
-
         }
 
       }, async e => {
