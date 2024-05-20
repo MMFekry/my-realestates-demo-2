@@ -41,6 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/products/product-list/product-list.module').then( m => m.ProductListPageModule)
   },
 
+
 ];
 
 @NgModule({
