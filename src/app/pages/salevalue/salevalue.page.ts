@@ -41,13 +41,16 @@ export class SalevaluePage implements OnInit {
           });
           await toast.present();
 
-          this.router.navigate(['../addparty'])
+          //this.router.navigate(['../addparty'])
+          this.router.navigate(['tabs/pages/addparty'])
+
         }
         else{
           let toast = await this.tosterCtrl.create({
             message: this.output.ResponseMessage
           });
           await toast.present();
+          //this.router.navigate(['tabs/pages/addparty'])
 
         }
 

@@ -23,6 +23,7 @@ export class ConsensualSalePage implements OnInit {
  map = new Map<string, Party>();
  party!: Party;
  output!: RequestOutputModel;
+ isDeleted:boolean = false;
 
   constructor(private modalCtrl : ModalController, private fb: FormBuilder,
     private partyService: PartyService, private router: Router,
@@ -73,11 +74,13 @@ export class ConsensualSalePage implements OnInit {
         text:"نعم",
         handler:() => {
           console.log("todo delete");
-          //debugger;
+          debugger;
 
-          this.form.reset();
-          let form = this.form.value;
-          this.party = { ...form}
+         this.form.reset();
+          this.isDeleted = true;
+          this.party = {...this.form.value}
+          console.log(this.form.getRawValue());
+
         }
       }]
     });
