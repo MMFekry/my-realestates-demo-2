@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center">
+
+
+    <ion-title class="h1 text-white ion-text-center">سداد الرسوم</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding mb-3">
+ 
+  
+  <ion-card class="white-bg greenLne m-0">
+    <ion-card-header class="pb-2">
+    <ion-card-title class="Graphik-bold h3 darkblue">تكاليف الخدمة</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      
+        <ion-item lines="none" color="translucent" class="mb-3">
+          <img class="egpimg" alt="" src="../../../assets/img/EGP.svg" />
+             <ion-label class="feescolor px-2">٢٥٠.٥٠ جم</ion-label>
+        </ion-item>
+        
+
+    </ion-card-content>
+  </ion-card>
+
+  <img class="paytypes" alt="" src="../../../assets/img/paymethods.png" />
+
+  <ion-fab vertical="bottom" fill="clear" horizontal="start" slot="fixed">
+    <ion-button fixed bottom fill="clear" class="cancelbtm">
+      الغاء
+    </ion-button>
+    <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../addparty">
+      تم
+    </ion-button>
+    </ion-fab>
+
+</ion-content>
