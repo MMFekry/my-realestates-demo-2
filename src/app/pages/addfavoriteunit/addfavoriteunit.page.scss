@@ -147,7 +147,15 @@ padding: 0 20px 0 0;
          }
 
 
-   
+         .btnsave  {
+          float:left; font-family: var(--fontHelveticaNeue) !important;
+           background: var(--colorGreen); margin: 15px; border-radius: 6px; font-size: 18px; 
+           font-weight: 600; 
+         }
+
+         .btnsave button  {
+          margin-top: -3px !important;
+              }
   
 
  ion-modal#example-modal {
