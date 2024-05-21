@@ -2,3 +2,34 @@
     font-family: var(--fontHelveticaNeue) !important; font-size: 18px;
     font-weight: 700;
    }
+
+   .titlrblue  {
+    font-family: var(--fontHelveticaNeue) !important; font-size: 16px;
+    font-weight: 700; color: var(--colordarkblue) !important;
+   }
+
+   .numrealestatid  {
+    font-family: var(--fontHelveticaNeue) !important; font-size: 22px;
+    font-weight: 600; color: #000 !important; letter-spacing: 3px; margin-bottom: 15px;
+   }
+
+   .methodholder  {
+    background: #fff; display: inline-block; width: 100%; padding-bottom: 10px; border-radius: 12px; margin-bottom: 30px;
+    -webkit-box-shadow: 0 0 8px 0 rgba(136, 136, 136, 0.3);
+    box-shadow: 0 0 8px 0 rgba(136, 136, 136, 0.3);
+  }
+
+  .map  {
+    width: 100%; margin-bottom: 10px;
+  }
+
+  .nextbtn  {
+    background: var(--colorGreen) !important; font-family: var(--fontHelveticaNeue) !important;
+    font-size: 16px;  font-weight: 600; display: inline-block; border-radius: 6px; padding-bottom: 4px;
+    padding-top: 0 !important; position: fixed; bottom:5px; left:25px; z-index: 3;
+   }
+
+   .labeladdress  {
+    font-size: 13px; font-family: var(--fontHelveticaNeue) !important;
+    font-weight: 600; color: #B6BDC6;
+   }
