@@ -20,3 +20,7 @@ export const FEES_API = {
     post: 'Request_Fees/SavePaymentNumber'
 }
 
+export const LOOKUP_API ={
+    get: 'Configurations_Lookups/GetRERNLookup'
+}
+

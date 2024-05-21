@@ -47,43 +47,38 @@
 
   <div class="intertedUnites position-relative" *ngIf="selectedTab == 'addaddress'">
       
-    <form>
+    <form [formGroup]="favform">
     <ion-row>
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">المحافطة <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر المحافظة" cancelText="إلغاء" okText="موافق" >
-             <ion-select-option value="القاهرة">القاهرة</ion-select-option>
-             <ion-select-option value="أسوان">أسوان</ion-select-option>
-             <ion-select-option value="الجيزة">الجيزة</ion-select-option>
-             <ion-select-option value="الأسكندرية">الأسكندرية</ion-select-option>
-             <ion-select-option value="بورسعيد">بورسعيد</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر المحافظة" 
+          cancelText="إلغاء" okText="موافق" formControlName="govID" (ionChange)="getCities($event)">
+             <ion-select-option  *ngFor="let gov of governorates" [value]="gov.ID">{{gov.Name}}</ion-select-option>             
           </ion-select>
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">المدينة <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر المدينة" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="حلوان">حلوان</ion-select-option>
-            <ion-select-option value="الوايلي">الوايلي</ion-select-option>
-            <ion-select-option value="الظاهر">الظاهر</ion-select-option>
-            <ion-select-option value="السيدة زينب">السيدة زينب</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر المدينة"
+           cancelText="إلغاء" okText="موافق" formControlName="cityID" (ionChange)="getDistricts($event)">
+            <ion-select-option  *ngFor="let city of cities" [value]="city.ID">{{city.Name}}</ion-select-option>             
+
          </ion-select>
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">الحي / المركز <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر الحي / المركز" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="شرق">شرق</ion-select-option>
-            <ion-select-option value="غرب">غرب</ion-select-option>
-            <ion-select-option value="جنوب">جنوب</ion-select-option>
-            <ion-select-option value="شمال">شمال</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر الحي / المركز"
+           cancelText="إلغاء" okText="موافق" formControlName="districtID" (ionChange)="getStreets($event)">
+            <ion-select-option  *ngFor="let district of districts" [value]="district.ID">{{district.Name}}</ion-select-option>             
+
          </ion-select>         
           <span class="validationlog">اختر من القائمة</span>
           </ion-item>
@@ -92,9 +87,9 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">الشارع / الحارة / البلوك <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر اسم الشارع" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="شارع محمد نجيب">شارع محمد نجيب</ion-select-option>
-            <ion-select-option value="شارع أحمد حلمي">شارع أحمد حلمي</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر اسم الشارع"
+           cancelText="إلغاء" okText="موافق" formControlName="streetID">
+           <ion-select-option  *ngFor="let street of streets" [value]="street.ID">{{street.Name}}</ion-select-option>             
          </ion-select> 
           <span class="validationlog">اختر من القائمة</span>
           </ion-item>
