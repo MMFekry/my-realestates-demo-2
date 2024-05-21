@@ -41,6 +41,7 @@ export class AddfavoriteunitPage implements OnInit {
   segmentChanged(ev: any) {
     console.log(ev.target.value);
     this.selectedTab= ev.target.value;
+    ev.stopPropagation();
   }
 
   getGovernorates(){

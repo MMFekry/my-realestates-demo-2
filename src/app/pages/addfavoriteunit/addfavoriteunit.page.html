@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h4>نوع العقار وحدة</h4>
+  <h4 class="titlrblue">نوع العقار وحدة</h4>
   <h2 class="titlerealestatetype mb-4">
     اختر احد الطرق التالية
   </h2>
@@ -149,7 +149,7 @@
 
 
       <ion-col size="12">
-        <ion-button id="open-custom-dialog" class="addparty ion-no-padding" fill="clear">
+        <ion-button id="open-custom" class="addparty ion-no-padding" fill="clear">
           <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
                <ion-label class="labeladd">إضافة رقم المبني</ion-label><sup>*</sup>
         </ion-button>
@@ -186,6 +186,117 @@
      <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../reviewaddress">
       حفط
     </ion-button>
+
+    <ion-modal id="example-modal" class="popupmodal" #modal trigger="open-custom">
+      <ng-template>
+      
+        <ion-toolbar class="rtldir">
+          <ion-title class="titlepoup">ادخل بيانات رقم المبني</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()"> <ion-icon name="close-outline"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+    
+        <div class="wrapper white-bg formcontent rtldir">
+    
+     
+         
+          <form>
+            <ion-row>
+       
+              <ion-col size="12"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">نوع الرقم <sup>*</sup></ion-label>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر نوع الرقم" cancelText="إلغاء" okText="موافق" >
+                    <ion-select-option value="رقم التنظيم">رقم التنظيم</ion-select-option>
+                    <ion-select-option value="رقم التقسيم">رقم التقسيم</ion-select-option>
+                    <ion-select-option value="رقم التنمير">رقم التنمير</ion-select-option>
+                    <ion-select-option value="رقم القطعة">رقم القطعة</ion-select-option>
+                    <ion-select-option value="رقم المربع">رقم المربع</ion-select-option>
+                 </ion-select> 
+                  <span class="validationlog">اختر من القائمة</span>
+                  </ion-item>
+              </ion-col>
+        
+              <ion-col size="6"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">الرقم <sup>*</sup></ion-label>
+                  <ion-input class="inputlog" type="text" placeholder="اكتب الرقم"></ion-input>
+                  <span class="validationlog">ادخل الرقم</span>
+                  </ion-item>
+              </ion-col>
+        
+              <ion-col size="6"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">الحرف<sup>*</sup></ion-label>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
+                    <ion-select-option value="أ">أ</ion-select-option>
+                    <ion-select-option value="ب">ب</ion-select-option>
+                 </ion-select> 
+                  <span class="validationlog">اختر من القائمة</span>
+                  </ion-item>
+              </ion-col>
+    
+              <ion-col size="6"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">المقام <sup>*</sup></ion-label>
+                  <ion-input class="inputlog" type="text" placeholder="اكتب المقام"></ion-input>
+                  <span class="validationlog">ادخل المقام</span>
+                  </ion-item>
+              </ion-col>
+    
+    
+              <ion-col size="6"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">حرف المقام<sup>*</sup></ion-label>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
+                    <ion-select-option value="أ">أ</ion-select-option>
+                    <ion-select-option value="ب">ب</ion-select-option>
+                 </ion-select> 
+                  <span class="validationlog">اختر من القائمة</span>
+                  </ion-item>
+              </ion-col>
+    
+              <ion-col size="12"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">الوصف<sup>*</sup></ion-label>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الوصف" cancelText="إلغاء" okText="موافق" >
+                    <ion-select-option value="وصف 1">وصف 1</ion-select-option>
+                    <ion-select-option value="وصف 2">وصف 2</ion-select-option>
+                 </ion-select> 
+                  <span class="validationlog">اختر من القائمة</span>
+                  </ion-item> 
+              </ion-col>
+    
+              <ion-col size="12"> 
+                <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
+                  <ion-label position="stacked" class="labellog">مسمي العقار<sup>*</sup></ion-label>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر مسمي العقار" cancelText="إلغاء" okText="موافق" >
+                    <ion-select-option value="مسمي 1">مسمي 1</ion-select-option>
+                    <ion-select-option value="مسمي 2">مسمي 2</ion-select-option>
+                 </ion-select> 
+                  <span class="validationlog">اختر من القائمة</span>
+                  </ion-item>
+              </ion-col>
+        
+             
+        
+        
+            
+        
+            </ion-row>
+             </form>   
+    
+        <br>
+    
+        <ion-button class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear">
+           حفظ
+        </ion-button>
+            
+        </div>
+      
+      </ng-template>
+    </ion-modal>
     
   </div>
 
@@ -195,115 +306,6 @@
 </div>
 
 
-<ion-modal id="example-modal" class="popupmodal" #modal trigger="open-custom-dialog">
-  <ng-template>
-  
-    <ion-toolbar class="rtldir">
-      <ion-title class="titlepoup">ادخل بيانات رقم المبني</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="modal.dismiss()"> <ion-icon name="close-outline"></ion-icon></ion-button>
-      </ion-buttons>
-    </ion-toolbar>
 
-    <div class="wrapper white-bg formcontent rtldir">
-
- 
-     
-      <form>
-        <ion-row>
-   
-          <ion-col size="12"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">نوع الرقم <sup>*</sup></ion-label>
-              <ion-select class="inputlog" interface="popover" placeholder="اختر نوع الرقم" cancelText="إلغاء" okText="موافق" >
-                <ion-select-option value="رقم التنظيم">رقم التنظيم</ion-select-option>
-                <ion-select-option value="رقم التقسيم">رقم التقسيم</ion-select-option>
-                <ion-select-option value="رقم التنمير">رقم التنمير</ion-select-option>
-                <ion-select-option value="رقم القطعة">رقم القطعة</ion-select-option>
-                <ion-select-option value="رقم المربع">رقم المربع</ion-select-option>
-             </ion-select> 
-              <span class="validationlog">اختر من القائمة</span>
-              </ion-item>
-          </ion-col>
-    
-          <ion-col size="6"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">الرقم <sup>*</sup></ion-label>
-              <ion-input class="inputlog" type="text" placeholder="اكتب الرقم"></ion-input>
-              <span class="validationlog">ادخل الرقم</span>
-              </ion-item>
-          </ion-col>
-    
-          <ion-col size="6"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">الحرف<sup>*</sup></ion-label>
-              <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
-                <ion-select-option value="أ">أ</ion-select-option>
-                <ion-select-option value="ب">ب</ion-select-option>
-             </ion-select> 
-              <span class="validationlog">اختر من القائمة</span>
-              </ion-item>
-          </ion-col>
-
-          <ion-col size="6"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">المقام <sup>*</sup></ion-label>
-              <ion-input class="inputlog" type="text" placeholder="اكتب المقام"></ion-input>
-              <span class="validationlog">ادخل المقام</span>
-              </ion-item>
-          </ion-col>
-
-
-          <ion-col size="6"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">حرف المقام<sup>*</sup></ion-label>
-              <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
-                <ion-select-option value="أ">أ</ion-select-option>
-                <ion-select-option value="ب">ب</ion-select-option>
-             </ion-select> 
-              <span class="validationlog">اختر من القائمة</span>
-              </ion-item>
-          </ion-col>
-
-          <ion-col size="12"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">الوصف<sup>*</sup></ion-label>
-              <ion-select class="inputlog" interface="popover" placeholder="اختر الوصف" cancelText="إلغاء" okText="موافق" >
-                <ion-select-option value="وصف 1">وصف 1</ion-select-option>
-                <ion-select-option value="وصف 2">وصف 2</ion-select-option>
-             </ion-select> 
-              <span class="validationlog">اختر من القائمة</span>
-              </ion-item> 
-          </ion-col>
-
-          <ion-col size="12"> 
-            <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-              <ion-label position="stacked" class="labellog">مسمي العقار<sup>*</sup></ion-label>
-              <ion-select class="inputlog" interface="popover" placeholder="اختر مسمي العقار" cancelText="إلغاء" okText="موافق" >
-                <ion-select-option value="مسمي 1">مسمي 1</ion-select-option>
-                <ion-select-option value="مسمي 2">مسمي 2</ion-select-option>
-             </ion-select> 
-              <span class="validationlog">اختر من القائمة</span>
-              </ion-item>
-          </ion-col>
-    
-         
-    
-    
-        
-    
-        </ion-row>
-         </form>   
-
-    <br>
-
-    <ion-button class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear">
-       حفظ
-    </ion-button>
-        
-    </div>
-  
-  </ng-template>
-</ion-modal>
 
 </ion-content>
