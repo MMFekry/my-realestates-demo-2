@@ -277,6 +277,15 @@ box-shadow: none !important;
      .darkblue  {
         color: var(--colordarkblue)     }
 
+        .notifialert  {
+          position: absolute; top:10px; color: #fff; left:22px; font-size: 30px;
+        }
+
+        .hasnew::before  {
+          position: absolute; top:0; right:1px; background: red; width: 8px; height: 8px;
+          border: 3px var(--colorGreen) solid; border-radius: 50%; content: '';
+        }
+
      ion-icon.select-icon  {
       position: absolute !important; left:10px !important
      }

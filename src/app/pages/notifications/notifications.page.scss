@@ -1,0 +1,52 @@
+.methodholder  {
+    background: #fff; display: inline-block; width: 100%; border-radius: 8px; padding-bottom: 15px; margin-bottom: 30px;
+    -webkit-box-shadow: 0 0 8px 0 rgba(136, 136, 136, 0.3);
+    box-shadow: 0 0 8px 0 rgba(136, 136, 136, 0.3);
+  }
+
+  .roundershadow  {
+ border-radius: 6px; max-width: calc(100% - 20px); margin-right: 9px;
+           }
+
+   .itempart  {
+            position: relative; padding: 0; border-bottom: 1px #B6BDC6 solid; width: 100%; 
+            display: inline-block;
+           }
+
+           .itempart::before  {
+            position: absolute; top:0; right:8px; width: 40px; height: 40px; content: ''; z-index: 0;
+            background: var(--colorGreen); color: #fff; border-radius: 50%; text-align: center;
+           }
+                  
+   .itempart .item-native  {
+            background: #fff !important;
+           }
+
+           .iconpart  {
+            position: absolute; top:10px; right:17px; font-size: 21px;
+           color: #fff;  text-align: center; z-index: 1;
+           }
+
+         .titlenote  {
+            right: 60px; font-family: var(--fontHelveticaNeue) !important; color: var(--colordarkblue);
+            font-size: 16px; position: absolute; top:2px; height: 24px; 
+            line-height: 20px; overflow: hidden; width: calc(100% - 80px);
+         }
+
+           .partname  {
+            margin: 30px 0 34px;
+          color: #1C304C;
+          font-weight: 600;
+          font-size: 18px;
+          font-family: var(--fontHelveticaNeue) !important;
+          width: 100%;
+          padding: 0 40px 0 0;
+           }
+
+           .subtitlritem   {
+            position: absolute; right:57px; bottom:0; color: #A6B5C8; font-size: 15px;
+            font-family: var(--fontHelveticaNeue) !important;
+           }
+
+  
+          
