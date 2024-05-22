@@ -20,11 +20,17 @@ export class AddfavoriteunitPage implements OnInit {
  unitNumbers!: Lookup[]
  floorNumbers!: Lookup[]
 
+ numberTypes!: Lookup[]
+ descList!: Lookup[]
+ letterList!: Lookup[]
+ towers!:Lookup[]
  favform: FormGroup=new FormGroup({});
-  constructor(private modalCtrl : ModalController, private fb: FormBuilder,
+ subFavForm : FormGroup=new FormGroup({});
+ constructor(private modalCtrl : ModalController, private fb: FormBuilder,
     private lookupService : LookupService
   ) { 
-    this.CreateForm()
+    this.CreateForm();
+    this.CreateSubForm();
   }
 
   ngOnInit() {
@@ -33,6 +39,9 @@ export class AddfavoriteunitPage implements OnInit {
     this.getFloors();
     this.getFloorNumbers();
     this.getUnitNumbers();
+    this.getNumberTypes();
+    this.getDescList();
+    this.getLetterList();
   }
 
   CreateForm(){
@@ -45,6 +54,20 @@ export class AddfavoriteunitPage implements OnInit {
       floorID: ['', Validators.required],
       unitNumberID: ['', Validators.required],
       area: ['', Validators.required],
+      floorNumberID: ['', Validators.required],
+      description: ['', Validators.required],
+    });
+  }
+  CreateSubForm(){
+
+    this.subFavForm = this.fb.group({
+      numberType: ['', Validators.required],
+      upnumber: ['', Validators.required],
+      upletter: ['', Validators.required],
+      dennumber: ['', Validators.required],
+      denletter: ['', Validators.required],
+      desclist: ['', Validators.required],
+      towerlist: ['', Validators.required],
       floorNumberID: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -64,7 +87,7 @@ export class AddfavoriteunitPage implements OnInit {
   }
 
   getCities(event: any){
-    debugger;
+    //debugger;
     let govID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.PoliceOffice, govID).subscribe(res => {
       this.cities = res.data
@@ -74,7 +97,7 @@ export class AddfavoriteunitPage implements OnInit {
 
   
   getDistricts(event: any){
-    debugger;
+    //debugger;
     let cityID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.Districts, cityID).subscribe(res => {
       this.districts = res.data
@@ -84,18 +107,25 @@ export class AddfavoriteunitPage implements OnInit {
 
   
   getStreets(event: any){
-    debugger;
+    //debugger;
     let districtID = event.detail.value;
-    this.lookupService.getLookupsData(ConfigurationLookups.Districts, districtID).subscribe(res => {
+    this.lookupService.getLookupsData(ConfigurationLookups.Streets, districtID).subscribe(res => {
       this.streets = res.data
       console.log(res.data)
     });
   }
 
-  
+  getTowers(event: any){
+    //debugger;
+    let streetID = event.detail.value;
+    this.lookupService.getLookupsData(ConfigurationLookups.Towers, streetID).subscribe(res => {
+      this.towers = res.data
+      console.log(res.data)
+    });
+  }
   
   getFloors(){
-    debugger;
+    //debugger;
     //let districtID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
       this.floors = res.data
@@ -105,7 +135,7 @@ export class AddfavoriteunitPage implements OnInit {
 
   
   getFloorNumbers(){
-    debugger;
+    //debugger;
     //let districtID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
       this.floorNumbers = res.data
@@ -115,11 +145,45 @@ export class AddfavoriteunitPage implements OnInit {
 
   
   getUnitNumbers(){
-    debugger;
+    //debugger;
     //let districtID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
       this.unitNumbers = res.data
       console.log(res.data)
     });
+
+  }
+  
+  getNumberTypes(){
+    this.lookupService.getLookupsData(ConfigurationLookups.NumberTypes, 0).subscribe(res => {
+      this.numberTypes = res.data
+      console.log(res.data)
+    });
+  }
+
+  
+  getDescList(){
+    this.lookupService.getLookupsData(ConfigurationLookups.RealEstateDescriptions, 0).subscribe(res => {
+      this.descList = res.data
+      console.log(res.data)
+    });
+  }
+
+  
+  
+  getLetterList(){
+    this.lookupService.getLookupsData(ConfigurationLookups.Letters, 0).subscribe(res => {
+      this.letterList = res.data
+      console.log(res.data)
+    });
+  }
+
+  OnSubmitSubFom(){
+    console.log(this.subFavForm.value);
+  }
+
+  
+  OnSubmitForm(){
+    console.log(this.favform.value);
   }
 }

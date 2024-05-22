@@ -82,7 +82,7 @@
             <ion-select-option  *ngFor="let district of districts" [value]="district.ID">{{district.Name}}</ion-select-option>             
 
          </ion-select>         
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
@@ -90,10 +90,10 @@
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">الشارع / الحارة / البلوك <sup>*</sup></ion-label>
           <ion-select class="inputlog" interface="popover" placeholder="اختر اسم الشارع"
-           cancelText="إلغاء" okText="موافق" formControlName="streetID">
+           cancelText="إلغاء" okText="موافق" formControlName="streetID" (ionChange)="getTowers($event)">
            <ion-select-option  *ngFor="let street of streets" [value]="street.ID">{{street.Name}}</ion-select-option>             
          </ion-select> 
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
@@ -104,7 +104,7 @@
           cancelText="إلغاء" okText="موافق" formControlName="unitNumberID">
             <ion-select-option  *ngFor="let unitNumber of unitNumbers" [value]="unitNumber.ID">{{unitNumber.Name}}</ion-select-option>             
          </ion-select> 
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
@@ -115,7 +115,7 @@
           cancelText="إلغاء" okText="موافق" formControlName="floorNumberID">
             <ion-select-option  *ngFor="let floorNumber of floorNumbers" [value]="floorNumber.ID">{{floorNumber.Name}}</ion-select-option>             
          </ion-select> 
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
@@ -134,7 +134,7 @@
            cancelText="إلغاء" okText="موافق" formControlName="floorID">
             <ion-select-option  *ngFor="let floor of floors" [value]="floor.ID">{{floor.Name}}</ion-select-option>             
          </ion-select> 
-          <span class="validationlog">اختر من القائمة</span>
+          <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
 
@@ -182,7 +182,7 @@
     </ion-row>
      </form>   
 
-     <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../reviewaddress">
+     <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../reviewaddress" type="submit" (click)="OnSubmitForm()">
       حفط
     </ion-button>
 
@@ -200,27 +200,24 @@
     
      
          
-          <form>
+          <form [formGroup]="subFavForm">
             <ion-row>
        
               <ion-col size="12"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">نوع الرقم <sup>*</sup></ion-label>
-                  <ion-select class="inputlog" interface="popover" placeholder="اختر نوع الرقم" cancelText="إلغاء" okText="موافق" >
-                    <ion-select-option value="رقم التنظيم">رقم التنظيم</ion-select-option>
-                    <ion-select-option value="رقم التقسيم">رقم التقسيم</ion-select-option>
-                    <ion-select-option value="رقم التنمير">رقم التنمير</ion-select-option>
-                    <ion-select-option value="رقم القطعة">رقم القطعة</ion-select-option>
-                    <ion-select-option value="رقم المربع">رقم المربع</ion-select-option>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر نوع الرقم" 
+                  cancelText="إلغاء" okText="موافق" formControlName="numberType">
+                  <ion-select-option  *ngFor="let numberType of numberTypes" [value]="numberType.ID">{{numberType.Name}}</ion-select-option>             
                  </ion-select> 
-                  <span class="validationlog">اختر من القائمة</span>
+                  <!-- <span class="validationlog">اختر من القائمة</span> -->
                   </ion-item>
               </ion-col>
         
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">الرقم <sup>*</sup></ion-label>
-                  <ion-input class="inputlog" type="text" placeholder="اكتب الرقم"></ion-input>
+                  <ion-input class="inputlog" type="text" placeholder="اكتب الرقم" formControlName="upnumber"></ion-input>
                   <span class="validationlog">ادخل الرقم</span>
                   </ion-item>
               </ion-col>
@@ -228,18 +225,18 @@
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">الحرف<sup>*</sup></ion-label>
-                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
-                    <ion-select-option value="أ">أ</ion-select-option>
-                    <ion-select-option value="ب">ب</ion-select-option>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف"
+                   cancelText="إلغاء" okText="موافق" formControlName="upletter">
+                   <ion-select-option  *ngFor="let letter of letterList" [value]="letter.ID">{{letter.Name}}</ion-select-option>             
                  </ion-select> 
-                  <span class="validationlog">اختر من القائمة</span>
+                  <!-- <span class="validationlog">اختر من القائمة</span> -->
                   </ion-item>
               </ion-col>
     
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">المقام <sup>*</sup></ion-label>
-                  <ion-input class="inputlog" type="text" placeholder="اكتب المقام"></ion-input>
+                  <ion-input class="inputlog" type="text" placeholder="اكتب المقام" formControlName="dennumber"></ion-input>
                   <span class="validationlog">ادخل المقام</span>
                   </ion-item>
               </ion-col>
@@ -248,33 +245,33 @@
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">حرف المقام<sup>*</sup></ion-label>
-                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف" cancelText="إلغاء" okText="موافق" >
-                    <ion-select-option value="أ">أ</ion-select-option>
-                    <ion-select-option value="ب">ب</ion-select-option>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الحرف"
+                   cancelText="إلغاء" okText="موافق" formControlName="denletter">
+                   <ion-select-option  *ngFor="let letter of letterList" [value]="letter.ID">{{letter.Name}}</ion-select-option>             
                  </ion-select> 
-                  <span class="validationlog">اختر من القائمة</span>
+                  <!-- <span class="validationlog">اختر من القائمة</span> -->
                   </ion-item>
               </ion-col>
     
               <ion-col size="12"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">الوصف<sup>*</sup></ion-label>
-                  <ion-select class="inputlog" interface="popover" placeholder="اختر الوصف" cancelText="إلغاء" okText="موافق" >
-                    <ion-select-option value="وصف 1">وصف 1</ion-select-option>
-                    <ion-select-option value="وصف 2">وصف 2</ion-select-option>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر الوصف"
+                   cancelText="إلغاء" okText="موافق" formControlName="desclist">
+                   <ion-select-option  *ngFor="let desc of descList" [value]="desc.ID">{{desc.Name}}</ion-select-option>             
                  </ion-select> 
-                  <span class="validationlog">اختر من القائمة</span>
+                  <!-- <span class="validationlog">اختر من القائمة</span> -->
                   </ion-item> 
               </ion-col>
     
               <ion-col size="12"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">مسمي العقار<sup>*</sup></ion-label>
-                  <ion-select class="inputlog" interface="popover" placeholder="اختر مسمي العقار" cancelText="إلغاء" okText="موافق" >
-                    <ion-select-option value="مسمي 1">مسمي 1</ion-select-option>
-                    <ion-select-option value="مسمي 2">مسمي 2</ion-select-option>
+                  <ion-select class="inputlog" interface="popover" placeholder="اختر مسمي العقار"
+                   cancelText="إلغاء" okText="موافق" formControlName="towerlist">
+                   <ion-select-option  *ngFor="let tower of towers" [value]="tower.ID">{{tower.Name}}</ion-select-option>             
                  </ion-select> 
-                  <span class="validationlog">اختر من القائمة</span>
+                  <!-- <span class="validationlog">اختر من القائمة</span> -->
                   </ion-item>
               </ion-col>
         
@@ -288,7 +285,7 @@
     
         <br>
     
-        <ion-button class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear">
+        <ion-button type="submit" class="btnsave text-white" slott="start" (click)="modal.dismiss()" fill="clear" (click)="OnSubmitSubFom()">
            حفظ
         </ion-button>
             

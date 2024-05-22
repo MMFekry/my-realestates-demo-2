@@ -26,9 +26,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  logIn(){
-    this.router.navigate(['/realestates'])
-  }
+  // logIn(){
+  //   this.router.navigate(['/realestates'])
+  // }
   CreateForm(){
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -36,17 +36,17 @@ export class LoginPage implements OnInit {
     });
   }
 
-  OnSubmit(){
-    console.log(this.form.value);
-    this.router.navigate(['/todo-list'])
+  // OnSubmit(){
+  //   console.log(this.form.value);
+  //   this.router.navigate(['/todo-list'])
 
-  }
-  OnGoMovie(){
-    this.router.navigate(['/realestates'])
+  // }
+  // OnGoMovie(){
+  //   this.router.navigate(['/realestates'])
 
-  }
+  // }
   OnGoDesign(){
-    this.router.navigate(['/tabs/pages/eservices'])
+    this.router.navigate(['/tabs'])
 
   }
 }
