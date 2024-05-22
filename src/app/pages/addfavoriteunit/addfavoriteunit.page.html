@@ -98,10 +98,9 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">رقم الوحدة <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر رقم الوحدة" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="1">1</ion-select-option>
-            <ion-select-option value="2">2</ion-select-option>
-            <ion-select-option value="3">3</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر رقم الوحدة" 
+          cancelText="إلغاء" okText="موافق" formControlName="unitNumberID">
+            <ion-select-option  *ngFor="let unitNumber of unitNumbers" [value]="unitNumber.ID">{{unitNumber.Name}}</ion-select-option>             
          </ion-select> 
           <span class="validationlog">اختر من القائمة</span>
           </ion-item>
@@ -110,10 +109,9 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">رقم الدور <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر رقم الدور" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="1">1</ion-select-option>
-            <ion-select-option value="2">2</ion-select-option>
-            <ion-select-option value="3">3</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر رقم الدور" 
+          cancelText="إلغاء" okText="موافق" formControlName="floorNumberID">
+            <ion-select-option  *ngFor="let floorNumber of floorNumbers" [value]="floorNumber.ID">{{floorNumber.Name}}</ion-select-option>             
          </ion-select> 
           <span class="validationlog">اختر من القائمة</span>
           </ion-item>
@@ -122,7 +120,7 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">المساحة بالمتر <sup>*</sup></ion-label>
-          <ion-input class="inputlog" type="text" placeholder="اكتب المساحة"></ion-input>
+          <ion-input class="inputlog" type="number" placeholder="اكتب المساحة" formControlName="area"></ion-input>
           <span class="validationlog">ادخل المساحة</span>
           </ion-item>
       </ion-col>
@@ -130,10 +128,9 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">عدد أدوار المبني <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر عدد الادوار" cancelText="إلغاء" okText="موافق" >
-            <ion-select-option value="1">1</ion-select-option>
-            <ion-select-option value="2">2</ion-select-option>
-            <ion-select-option value="3">3</ion-select-option>
+          <ion-select class="inputlog" interface="popover" placeholder="اختر عدد الادوار"
+           cancelText="إلغاء" okText="موافق" formControlName="floorID">
+            <ion-select-option  *ngFor="let floor of floors" [value]="floor.ID">{{floor.Name}}</ion-select-option>             
          </ion-select> 
           <span class="validationlog">اختر من القائمة</span>
           </ion-item>
@@ -142,7 +139,7 @@
       <ion-col size="12"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">الوصف <sup>*</sup></ion-label>
-          <ion-textarea class="inputlog" rows="4" placeholder="اكتب الوصف"></ion-textarea>
+          <ion-textarea class="inputlog" rows="4" placeholder="اكتب الوصف" formControlName="description"></ion-textarea>
           <span class="validationlog">ادخل الوصف</span>
           </ion-item>
       </ion-col>

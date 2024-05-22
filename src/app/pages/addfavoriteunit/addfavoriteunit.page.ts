@@ -16,6 +16,10 @@ export class AddfavoriteunitPage implements OnInit {
  cities!: Lookup[]
  districts!: Lookup[]
  streets!: Lookup[]
+ floors!: Lookup[]
+ unitNumbers!: Lookup[]
+ floorNumbers!: Lookup[]
+
  favform: FormGroup=new FormGroup({});
   constructor(private modalCtrl : ModalController, private fb: FormBuilder,
     private lookupService : LookupService
@@ -26,6 +30,9 @@ export class AddfavoriteunitPage implements OnInit {
   ngOnInit() {
     debugger;
     this.getGovernorates();
+    this.getFloors();
+    this.getFloorNumbers();
+    this.getUnitNumbers();
   }
 
   CreateForm(){
@@ -35,6 +42,11 @@ export class AddfavoriteunitPage implements OnInit {
       cityID: ['', Validators.required],
       districtID: ['', Validators.required],
       streetID: ['', Validators.required],
+      floorID: ['', Validators.required],
+      unitNumberID: ['', Validators.required],
+      area: ['', Validators.required],
+      floorNumberID: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
@@ -76,6 +88,37 @@ export class AddfavoriteunitPage implements OnInit {
     let districtID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.Districts, districtID).subscribe(res => {
       this.streets = res.data
+      console.log(res.data)
+    });
+  }
+
+  
+  
+  getFloors(){
+    debugger;
+    //let districtID = event.detail.value;
+    this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
+      this.floors = res.data
+      console.log(res.data)
+    });
+  }
+
+  
+  getFloorNumbers(){
+    debugger;
+    //let districtID = event.detail.value;
+    this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
+      this.floorNumbers = res.data
+      console.log(res.data)
+    });
+  }
+
+  
+  getUnitNumbers(){
+    debugger;
+    //let districtID = event.detail.value;
+    this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
+      this.unitNumbers = res.data
       console.log(res.data)
     });
   }
