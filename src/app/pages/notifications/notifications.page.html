@@ -1,13 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-icon class="notifialert" name="notifications-outline"></ion-icon>
     <ion-title class="h1 text-white">الاشعارات</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">notifications</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+      <div class="methodholder">
+
+        <ion-list class="white-bg mt-3 ion-no-padding" fill="clear" lines="none">
+          <ion-item fill="clear" color="transparent" class="itempart m-0 ion-no-padding">
+            <ion-icon class="m-0 iconpart" slot="start" name="swap-horizontal-outline"></ion-icon>
+         <!--  <h6>يوجد تعامل على عقار المهتم به</h6>  -->
+         <h6 class="titlenote m-0">يوجد تعامل على عقار المهتم به</h6>
+            <h2 class="partname" expand="block">٢ شارع سبيل الخزندار الظاهر - القاهرة</h2>
+           <small class="subtitlritem">٢٠٢٤/٠٤/١٢</small>
+        
+          
+
+        
+          </ion-item>
+        </ion-list>
+
+   
+      </div>
 </ion-content>
