@@ -8,20 +8,4 @@ export const REALESTATE_API = {
     }
 };
 
-export const REQUEST_API = {
-    create: 'CreateEstateRequest/CreateEstateRequest'
-}
-
-export const TRANS_API = {
-    create: 'Transaction/AddTransactions'
-}
-
-export const FEES_API = {
-    get: 'Request_Fees/GetFeesPerRequest',
-    post: 'Request_Fees/SavePaymentNumber'
-}
-
-export const LOOKUP_API ={
-    get: 'Configurations_Lookups/GetRERNLookup'
-}
 

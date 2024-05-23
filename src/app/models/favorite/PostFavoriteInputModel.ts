@@ -13,3 +13,11 @@ export interface PostFavoriteInputModel
         HasLicense: boolean,
         ContractInfo: Contract
       }
+
+export interface PostFavoriteOutputModel{
+    RequestID: number,
+    Requests_RequestsID: number,
+    data: number,
+    ResponseCode: number,
+    ResponseMessage: string
+  }

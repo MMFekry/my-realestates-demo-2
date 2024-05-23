@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from "src/environments/environment";
-import { FEES_API } from "src/app/@core/api/api-config/realestate-api";
+import { FEES_API } from "src/app/@core/api/api-config/FEES_API";
 
 import { GetFeesResultModel } from 'src/app/models/fees/get-fees-result-model';
 import { GetFeesInputModel } from 'src/app/models/fees/get-fees-input-model';

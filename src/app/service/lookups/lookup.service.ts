@@ -6,7 +6,7 @@ import { LookupInputModel } from 'src/app/models/lookups/LookupInputModel';
 import { Observable } from 'rxjs';
 import { environment } from "src/environments/environment";
 import { ConfigurationLookups } from 'src/app/@shared/enums/enums';
-import { LOOKUP_API } from "src/app/@core/api/api-config/realestate-api";
+import { LOOKUP_API } from "src/app/@core/api/api-config/LOOKUP_API";
 
 @Injectable({
   providedIn: 'root'

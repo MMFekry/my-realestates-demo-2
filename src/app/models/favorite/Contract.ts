@@ -4,7 +4,7 @@ import { LocationAddress } from "./LocationAddress";
 
 
 export interface Contract {
-    LocationAddress: LocationAddress;
-    BuildingAddress: BuildingAddress;
-    Party: Party[];
+    LocationAddress: LocationAddress,
+    BuildingAddress: BuildingAddress,
+    Party: Party[]
 }

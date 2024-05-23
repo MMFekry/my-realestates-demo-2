@@ -5,7 +5,7 @@ import { TransactionParty } from 'src/app/models/Transactions/TransactionParty';
 import { TransactionInputModel } from 'src/app/models/Transactions/transaction-input-model';
 import { environment } from "src/environments/environment";
 import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
-import { TRANS_API } from "src/app/@core/api/api-config/realestate-api";
+import { TRANS_API } from "src/app/@core/api/api-config/TRANS_API";
 import { RequestService } from '../requests/request.service';
 
 @Injectable({

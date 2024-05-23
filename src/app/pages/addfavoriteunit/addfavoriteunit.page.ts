@@ -1,9 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { ConfigurationLookups } from 'src/app/@shared/enums/enums';
+import { ConfigurationLookups, PropertyTypes } from 'src/app/@shared/enums/enums';
+import { Favorite } from 'src/app/@shared/models/favorite';
+import { NID } from 'src/app/@shared/static/nid';
+import { BuildingAddress } from 'src/app/models/favorite/BuildingAddress';
+import { Contract } from 'src/app/models/favorite/Contract';
+import { Land, LocationAddress } from 'src/app/models/favorite/LocationAddress';
+import { PostFavoriteInputModel, PostFavoriteOutputModel } from 'src/app/models/favorite/PostFavoriteInputModel';
 import { Lookup } from 'src/app/models/lookups/LookupOutputModel';
+import { FavoriteService } from 'src/app/service/favorite/favorite.service';
 import { LookupService } from 'src/app/service/lookups/lookup.service';
+import { LoadingController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Party } from 'src/app/models/realestates/party';
 
 @Component({
   selector: 'app-addfavoriteunit',
@@ -26,8 +36,12 @@ export class AddfavoriteunitPage implements OnInit {
  towers!:Lookup[]
  favform: FormGroup=new FormGroup({});
  subFavForm : FormGroup=new FormGroup({});
- constructor(private modalCtrl : ModalController, private fb: FormBuilder,
-    private lookupService : LookupService
+ favorite!: Favorite;
+ output!: PostFavoriteOutputModel;
+
+ constructor(private modalCtrl : ModalController, private fb: FormBuilder, private router: Router,
+    private lookupService : LookupService, private favoriteService: FavoriteService,
+    private loadingCtrl: LoadingController, private tosterCtrl : ToastController,
   ) { 
     this.CreateForm();
     this.CreateSubForm();
@@ -42,6 +56,117 @@ export class AddfavoriteunitPage implements OnInit {
     this.getNumberTypes();
     this.getDescList();
     this.getLetterList();
+  }
+
+  async postForm(){
+    debugger;
+    //routerLink="../reviewaddress"
+    let favorite: Favorite = {...this.favform.value,...this.subFavForm.value};
+    //favorite = {...this.subFavForm.value};
+    let model = this.CreateFavoriteModel(favorite);
+
+    let loading = await this.loadingCtrl.create({});
+    await loading.present();
+
+    this.favoriteService.postdata(model).subscribe(async res => {
+      await loading.dismiss();
+        this.output = res;
+        console.log(this.output);
+        debugger;
+        if(this.output.ResponseCode == 200){
+          let toast = await this.tosterCtrl.create({
+            message: this.output.ResponseMessage
+          });
+          await toast.present();
+
+          this.router.navigate(['tabs/pages/reviewaddress'])
+
+        }
+        else{
+          let toast = await this.tosterCtrl.create({
+            message: this.output.ResponseMessage
+          });
+          await toast.present();
+
+        }
+
+      }, async e => {
+        await loading.dismiss();
+        let toast = await this.tosterCtrl.create({
+          message: e.message
+        });
+        await toast.present();
+      });
+  }
+
+  CreateFavoriteModel(favorite: Favorite) : PostFavoriteInputModel{
+    return {
+        NationalID: NID.fav,
+        FirstName: "محمد",
+        SecondName: "إبراهيم",
+        PropertyType: PropertyTypes.UnitsAreBuiltOnly,
+        ISNUCA: false,
+        HasLicense: false,
+        ContractInfo: this.CreateContract(favorite)
+    } as PostFavoriteInputModel
+  }
+
+  CreateContract(favorite: Favorite): Contract{
+    return {
+      LocationAddress: this.CreateLocationAddress(favorite),
+      BuildingAddress: this.CreateBuildingAddress(favorite),
+      Party: [] as Party[]
+    } as Contract
+  }
+
+  
+  CreateLocationAddress(favorite: Favorite): LocationAddress{
+    return {
+      Governorate: favorite.govID,
+      City: favorite.cityID,
+      Village: favorite.districtID,
+      StreetName: favorite.streetID,
+      Area: favorite.area,
+      Centroid: "true",
+      SeragCode: "",
+      //LocationMaps: LocationMap[],
+      LandInfo: [{
+        NumberType: [
+          {
+            Types: favorite.numberType,
+            Number: favorite.upnumber,
+            harf: favorite.upletter,
+            Maqam: favorite.dennumber,
+            NameID: favorite.towerlist,
+            DescriptionID: favorite.desclist
+          }
+        ]
+      }]
+    } as LocationAddress
+  }
+  
+  CreateBuildingAddress(favorite: Favorite): BuildingAddress{
+    return {
+      Governorate: favorite.govID,
+      City: favorite.cityID,
+      Village: favorite.districtID,
+      StreetName: favorite.streetID,
+      Area: favorite.area,
+      FloorNumbers: favorite.floorNumberID,
+      BuildingUnifiedNumber: '',
+      BuildingInfo: {
+        NumberType: [{
+          Types: favorite.numberType,
+          Number: favorite.upnumber,
+          harf: favorite.upletter,
+          Maqam: favorite.dennumber,
+          NameID: favorite.towerlist,
+          DescriptionID: favorite.desclist
+        }],
+        //UnitInfo: Unit[]
+      },
+      //LocationMaps: LocationMap[],
+    } as BuildingAddress
   }
 
   CreateForm(){
@@ -67,9 +192,7 @@ export class AddfavoriteunitPage implements OnInit {
       dennumber: ['', Validators.required],
       denletter: ['', Validators.required],
       desclist: ['', Validators.required],
-      towerlist: ['', Validators.required],
-      floorNumberID: ['', Validators.required],
-      description: ['', Validators.required],
+      towerlist: ['', Validators.required]
     });
   }
 
@@ -180,6 +303,7 @@ export class AddfavoriteunitPage implements OnInit {
 
   OnSubmitSubFom(){
     console.log(this.subFavForm.value);
+    this.favorite = {...this.subFavForm.value}
   }
 
   

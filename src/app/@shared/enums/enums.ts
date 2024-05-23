@@ -14,3 +14,11 @@ export enum ConfigurationLookups{
     RealEstateDescriptions = 30016,
     NumberTypes = 30015,
 }
+
+export enum PropertyTypes{
+    UnitsAreBuiltIncludingAStakeInTheLand = 1,
+    UnitsAreBuiltOnly = 2,
+    LandWithBuildings = 4,
+    UnitsAreBuiltIncludingAStakeInTheLandAndSharedParts = 14,
+    UnitsAreBuiltOnlyAndSharedParts = 15,
+}

@@ -148,22 +148,23 @@
 
 
       <ion-col size="12">
-        <ion-button id="open-custom" class="addparty ion-no-padding" fill="clear">
-          <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
-               <ion-label class="labeladd">إضافة رقم المبني</ion-label><sup>*</sup>
-        </ion-button>
-      
-      
-        <div class="emptyparty ion-text-center">
-          <ion-icon class="nopersons" name="folder-open-outline"></ion-icon>
-              <ion-label class="noteempty" expand="block">لم يتم ادخال رقم المبني</ion-label>
+        <div *ngIf="!favorite">
+          <ion-button id="open-custom" class="addparty ion-no-padding" fill="clear">
+            <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
+                <ion-label class="labeladd">إضافة رقم المبني</ion-label><sup>*</sup>
+          </ion-button>
+        
+        
+          <div class="emptyparty ion-text-center">
+            <ion-icon class="nopersons" name="folder-open-outline"></ion-icon>
+                <ion-label class="noteempty" expand="block">لم يتم ادخال رقم المبني</ion-label>
+          </div>
         </div>
-      
-        <ion-list class="white-bg roundershadow mt-3 px-3" fill="clear" lines="none">
+        <ion-list class="white-bg roundershadow mt-3 px-3" fill="clear" lines="none" *ngIf="favorite">
         <ion-item fill="clear" color="transparent" class="itempart m-0">
           <ion-icon color="color-dark" class="m-0 iconpart" slot="start" name="trail-sign-outline"></ion-icon>
       
-          <h2 class="partname" expand="block">٢ب، ٢٤ أ</h2>
+          <h2 class="partname" expand="block">{{favorite.upnumber + favorite.upletter + '/' + favorite.dennumber + favorite.denletter + favorite.desclist + favorite.towerlist}}</h2>
         <!-- <small class="subtitlritem">شراء كامل العقار</small> -->
       
         
@@ -182,7 +183,7 @@
     </ion-row>
      </form>   
 
-     <ion-button class="nextbtn text-white" fill="clear" fixed bottom routerLink="../reviewaddress" type="submit" (click)="OnSubmitForm()">
+     <ion-button class="nextbtn text-white" fill="clear" fixed bottom  type="submit" (click)="postForm()">
       حفط
     </ion-button>
 
@@ -217,7 +218,7 @@
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">الرقم <sup>*</sup></ion-label>
-                  <ion-input class="inputlog" type="text" placeholder="اكتب الرقم" formControlName="upnumber"></ion-input>
+                  <ion-input class="inputlog" type="number" placeholder="اكتب الرقم" formControlName="upnumber"></ion-input>
                   <span class="validationlog">ادخل الرقم</span>
                   </ion-item>
               </ion-col>
@@ -236,7 +237,7 @@
               <ion-col size="6"> 
                 <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
                   <ion-label position="stacked" class="labellog">المقام <sup>*</sup></ion-label>
-                  <ion-input class="inputlog" type="text" placeholder="اكتب المقام" formControlName="dennumber"></ion-input>
+                  <ion-input class="inputlog" type="number" placeholder="اكتب المقام" formControlName="dennumber"></ion-input>
                   <span class="validationlog">ادخل المقام</span>
                   </ion-item>
               </ion-col>

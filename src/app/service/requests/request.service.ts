@@ -5,7 +5,7 @@ import { environment } from "src/environments/environment";
 import { RequestInputModel } from 'src/app/models/Requests/request-input-model';
 import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
 import { Person } from "src/app/models/Requests/Person";
-import { REQUEST_API } from "src/app/@core/api/api-config/realestate-api";
+import { REQUEST_API } from "src/app/@core/api/api-config/REQUEST_API";
 
 @Injectable({
   providedIn: 'root'
