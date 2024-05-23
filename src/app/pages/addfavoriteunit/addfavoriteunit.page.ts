@@ -91,6 +91,8 @@ export class AddfavoriteunitPage implements OnInit {
         }
 
       }, async e => {
+        debugger;
+
         await loading.dismiss();
         let toast = await this.tosterCtrl.create({
           message: e.message

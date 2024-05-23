@@ -19,7 +19,9 @@ export class RegisteredRealestatesService {
 
   getdata(  
   ): Observable<RegisteredRealestateResult> {
-    return this.http.get<RegisteredRealestateResult>(`${environment.localBaseUrl}${REALESTATE_API.registered.get}${NID.reg}`);
+    let body = {
+    } as GGHeader
+    return this.http.post<RegisteredRealestateResult>(`${environment.localBaseUrl}${REALESTATE_API.registered.get}${NID.reg}`, body);
    }
 
    goDetails(reg: RegisteredRealestate){

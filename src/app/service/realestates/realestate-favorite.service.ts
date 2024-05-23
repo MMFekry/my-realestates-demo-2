@@ -20,6 +20,8 @@ private data = signal('');
   getdata(  
   ): Observable<FavoriteRealestateResult> {
     //debugger;
-    return this.http.get<FavoriteRealestateResult>(`${environment.localBaseUrl}${REALESTATE_API.favorite.get}${NID.fav}`);
+    let body = {
+    } as GGHeader
+    return this.http.post<FavoriteRealestateResult>(`${environment.localBaseUrl}${REALESTATE_API.favorite.get}${NID.fav}`, body);
    }
 }
