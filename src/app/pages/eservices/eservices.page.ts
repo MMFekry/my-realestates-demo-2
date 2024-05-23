@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, InfiniteScrollCustomEvent } from '@ionic/angular';
+import { LoadingController, InfiniteScrollCustomEvent, ToastController} from '@ionic/angular';
 import { Router } from '@angular/router';
 
 import { FavoriteRealestateResult } from 'src/app/models/realestates/favorite-realestate-result';
@@ -21,11 +21,13 @@ export class EservicesPage implements OnInit {
   favoriteResult!: FavoriteRealestate[];
   registredResult!: RegisteredRealestate[];
   current = 1;
-
+  loading: boolean=true;
+  err!: string;
   constructor(private router: Router, 
     private favService: RealestateFavoriteService,
     private regService: RegisteredRealestatesService,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private tosterCtrl : ToastController
   ) { }
 
   ngOnInit() {
@@ -60,11 +62,39 @@ export class EservicesPage implements OnInit {
     })
   }
 
-  getRegisterd(){
-    this.regService.getdata().subscribe(res => {
+  getRegisterd(event?: any){
+    if(!event) this.loading = true;
+
+    this.regService.getdata().subscribe(async res => {
+      event? event.target.complete() : this.loading = false;
+    
      this.registredResult = res.data;
      console.log(res);
-    })
+
+     if(res.ResponseCode == 200){
+      let toast = await this.tosterCtrl.create({
+        message: res.ResponseMessage
+      });
+      await toast.present();
+
+    }
+    else{
+      let toast = await this.tosterCtrl.create({
+        message: res.ResponseMessage
+      });
+      await toast.present();
+
+    }
+    }, async e => {
+      event? event.target.complete() : this.loading = false;
+      this.err = e;
+
+        let toast = await this.tosterCtrl.create({
+          message: e.message
+        });
+        await toast.present();
+
+    });
   }
 
   goDetails(){
@@ -73,4 +103,10 @@ export class EservicesPage implements OnInit {
     this.router.navigate(['tabs/pages/eservicelv1'])
     
   }
+
+  
+  doRefresh(event: any){
+    this.getRegisterd(event);
+}
+
 }

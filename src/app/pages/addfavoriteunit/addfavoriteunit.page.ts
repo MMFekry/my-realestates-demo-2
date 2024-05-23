@@ -14,6 +14,8 @@ import { LookupService } from 'src/app/service/lookups/lookup.service';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Party } from 'src/app/models/realestates/party';
+import { GGHeader } from 'src/app/models/GG/ggheader';
+import { LocationMap } from 'src/app/models/realestates/location-map';
 
 @Component({
   selector: 'app-addfavoriteunit',
@@ -75,7 +77,7 @@ export class AddfavoriteunitPage implements OnInit {
         debugger;
         if(this.output.ResponseCode == 200){
           let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage
+            message: this.output.ResponseMessage + 'رقم الطلب' + this.output.RequestID
           });
           await toast.present();
 
@@ -98,11 +100,14 @@ export class AddfavoriteunitPage implements OnInit {
           message: e.message
         });
         await toast.present();
+        this.router.navigate(['tabs/pages/reviewaddress'])
+
       });
   }
 
   CreateFavoriteModel(favorite: Favorite) : PostFavoriteInputModel{
     return {
+        GGHeader: {} as GGHeader,
         NationalID: NID.fav,
         FirstName: "محمد",
         SecondName: "إبراهيم",
@@ -131,7 +136,7 @@ export class AddfavoriteunitPage implements OnInit {
       Area: favorite.area,
       Centroid: "true",
       SeragCode: "",
-      //LocationMaps: LocationMap[],
+      LocationMaps: [] as LocationMap[],
       LandInfo: [{
         NumberType: [
           {
@@ -167,7 +172,7 @@ export class AddfavoriteunitPage implements OnInit {
         }],
         //UnitInfo: Unit[]
       },
-      //LocationMaps: LocationMap[],
+      LocationMaps: [] as LocationMap[],
     } as BuildingAddress
   }
 
