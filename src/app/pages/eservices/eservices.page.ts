@@ -8,6 +8,7 @@ import { RealestateFavoriteService } from '../../service/realestates/realestate-
 import { RegisteredRealestatesService } from '../../service/realestates/registered-realestates.service';
 import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
 import { state } from '@angular/animations';
+import { FavoriteRealestate } from 'src/app/models/realestates/favorite-realestate';
 
 @Component({
   selector: 'app-eservices',
@@ -17,8 +18,8 @@ import { state } from '@angular/animations';
 export class EservicesPage implements OnInit {
 
   selectedSegment : string ='registedUnits';
-  favoriteResult!: FavoriteRealestateResult;
-  registredResult!: RegisteredRealestateResult;
+  favoriteResult!: FavoriteRealestate[];
+  registredResult!: RegisteredRealestate[];
   current = 1;
 
   constructor(private router: Router, 
@@ -50,7 +51,7 @@ export class EservicesPage implements OnInit {
       //this.favoriteResult.data.push(...res.data);
       
      
-     this.favoriteResult = res;
+     this.favoriteResult = res.data;
      console.log(res);
     },
     (err) => {
@@ -61,7 +62,7 @@ export class EservicesPage implements OnInit {
 
   getRegisterd(){
     this.regService.getdata().subscribe(res => {
-     this.registredResult = res;
+     this.registredResult = res.data;
      console.log(res);
     })
   }

@@ -25,9 +25,9 @@
     <div class="registedUnits" *ngIf="selectedSegment == 'registedUnits'">
 
       
-      <ion-list class="listrealestat" lines="none" detail *ngIf="registredResult.data">
+      <ion-list class="listrealestat" lines="none" detail *ngIf="registredResult">
       
-        <ion-item color="none" class="rowrealestat" *ngFor="let prop of registredResult.data; let i = index">
+        <ion-item color="none" class="rowrealestat" *ngFor="let prop of registredResult; let i = index">
           <h5 size="large" slot="start">{{prop.PropertyType}}</h5>
           <ion-label>
           <div *ngFor="let adres of prop.LandsInfo">
@@ -41,9 +41,9 @@
     </div>
      
     <div class="intertedUnites" *ngIf="selectedSegment == 'intertedUnites'">
-      <ion-list class="listrealestat" lines="none" detail *ngIf="favoriteResult.data">
+      <ion-list class="listrealestat" lines="none" detail *ngIf="favoriteResult">
       
-        <ion-item color="none" class="rowrealestat" *ngFor="let prop of favoriteResult.data; let i = index">
+        <ion-item color="none" class="rowrealestat" *ngFor="let prop of favoriteResult; let i = index">
           <h5 size="large" slot="start">{{prop.PropertyTypeName}}</h5>
           <ion-label class="m-0">
           <div *ngFor="let adres of prop.LandsInfo">
