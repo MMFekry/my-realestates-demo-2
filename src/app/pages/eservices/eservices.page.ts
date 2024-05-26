@@ -73,7 +73,9 @@ export class EservicesPage implements OnInit {
 
      if(res.ResponseCode == 200){
       let toast = await this.tosterCtrl.create({
-        message: res.ResponseMessage
+        message: res.ResponseMessage,
+        duration: 4000,
+        //position: 'middle',
       });
       await toast.present();
 
@@ -90,7 +92,9 @@ export class EservicesPage implements OnInit {
       this.err = e;
 
         let toast = await this.tosterCtrl.create({
-          message: e.message
+          message: e.message,
+          duration: 4000,
+          //position: 'middle',
         });
         await toast.present();
 

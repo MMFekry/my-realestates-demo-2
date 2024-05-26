@@ -50,6 +50,11 @@
     </div>
      
     <div class="intertedUnites" *ngIf="selectedSegment == 'intertedUnites'">
+      <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button class="btnaddunit" routerLink="../realestatetypes">
+        <ion-icon class="sizesvg" name="add"></ion-icon>
+        </ion-fab-button>
+        </ion-fab>
       <ion-list class="listrealestat" lines="none" detail *ngIf="favoriteResult">
       
         <ion-item color="none" class="rowrealestat" *ngFor="let prop of favoriteResult; let i = index">
@@ -97,10 +102,6 @@
 
   </div>
 
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-    <ion-fab-button class="btnaddunit" routerLink="../realestatetypes">
-    <ion-icon class="sizesvg" name="add"></ion-icon>
-    </ion-fab-button>
-    </ion-fab>
+  
 
 </ion-content>

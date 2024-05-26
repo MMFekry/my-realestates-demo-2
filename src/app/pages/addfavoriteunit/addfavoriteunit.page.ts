@@ -54,7 +54,7 @@ export class AddfavoriteunitPage implements OnInit {
     this.getGovernorates();
     this.getFloors();
     this.getFloorNumbers();
-    this.getUnitNumbers();
+    //this.getUnitNumbers();
     this.getNumberTypes();
     this.getDescList();
     this.getLetterList();
@@ -77,7 +77,8 @@ export class AddfavoriteunitPage implements OnInit {
         debugger;
         if(this.output.ResponseCode == 200){
           let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage + 'رقم الطلب' + this.output.RequestID
+            message: this.output.ResponseMessage + 'رقم الطلب' + this.output.RequestID,
+            duration: 3000
           });
           await toast.present();
 
@@ -86,7 +87,8 @@ export class AddfavoriteunitPage implements OnInit {
         }
         else{
           let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage
+            message: this.output.ResponseMessage,
+            duration: 3000
           });
           await toast.present();
 
@@ -97,7 +99,8 @@ export class AddfavoriteunitPage implements OnInit {
 
         await loading.dismiss();
         let toast = await this.tosterCtrl.create({
-          message: e.message
+          message: e.message,
+          duration: 3000
         });
         await toast.present();
         this.router.navigate(['tabs/pages/reviewaddress'])
@@ -186,20 +189,19 @@ export class AddfavoriteunitPage implements OnInit {
       floorID: ['', Validators.required],
       unitNumberID: ['', Validators.required],
       area: ['', Validators.required],
-      floorNumberID: ['', Validators.required],
-      description: ['', Validators.required],
+      floorNumberID: ['', Validators.required]
     });
   }
   CreateSubForm(){
 
     this.subFavForm = this.fb.group({
-      numberType: ['', Validators.required],
+      numberType: [0, Validators.required],
       upnumber: ['', Validators.required],
       upletter: ['', Validators.required],
-      dennumber: ['', Validators.required],
-      denletter: ['', Validators.required],
-      desclist: ['', Validators.required],
-      towerlist: ['', Validators.required]
+      dennumber: [''],
+      denletter: [0],
+      desclist: [0],
+      towerlist: [0]
     });
   }
 
@@ -257,7 +259,7 @@ export class AddfavoriteunitPage implements OnInit {
   getFloors(){
     //debugger;
     //let districtID = event.detail.value;
-    this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
+    this.lookupService.getLookupsData(ConfigurationLookups.MainFloors, 0).subscribe(res => {
       this.floors = res.data
       console.log(res.data)
     });
@@ -274,15 +276,15 @@ export class AddfavoriteunitPage implements OnInit {
   }
 
   
-  getUnitNumbers(){
-    //debugger;
-    //let districtID = event.detail.value;
-    this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
-      this.unitNumbers = res.data
-      console.log(res.data)
-    });
+  // getUnitNumbers(){
+  //   //debugger;
+  //   //let districtID = event.detail.value;
+  //   this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
+  //     this.unitNumbers = res.data
+  //     console.log(res.data)
+  //   });
 
-  }
+  // }
   
   getNumberTypes(){
     this.lookupService.getLookupsData(ConfigurationLookups.NumberTypes, 0).subscribe(res => {

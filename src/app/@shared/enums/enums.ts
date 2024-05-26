@@ -11,6 +11,7 @@ export enum ConfigurationLookups{
     Streets = 43,
     Letters = 44,
     Towers = 45,
+    MainFloors = 46,
     RealEstateDescriptions = 30016,
     NumberTypes = 30015,
 }

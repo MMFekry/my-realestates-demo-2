@@ -100,10 +100,8 @@
       <ion-col size="6"> 
         <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
           <ion-label position="stacked" class="labellog">رقم الوحدة <sup>*</sup></ion-label>
-          <ion-select class="inputlog" interface="popover" placeholder="اختر رقم الوحدة" 
-          cancelText="إلغاء" okText="موافق" formControlName="unitNumberID">
-            <ion-select-option  *ngFor="let unitNumber of unitNumbers" [value]="unitNumber.ID">{{unitNumber.Name}}</ion-select-option>             
-         </ion-select> 
+          <ion-input class="inputlog" type="number" placeholder="ادخل رقم الوحدة" formControlName="unitNumberID">
+         </ion-input> 
           <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
@@ -137,15 +135,6 @@
           <!-- <span class="validationlog">اختر من القائمة</span> -->
           </ion-item>
       </ion-col>
-
-      <ion-col size="12"> 
-        <ion-item class="m-0 no-highlight-focus ion-no-padding itemright" lines="none" fill="clear" color="clear">
-          <ion-label position="stacked" class="labellog">الوصف <sup>*</sup></ion-label>
-          <ion-textarea class="inputlog" rows="4" placeholder="اكتب الوصف" formControlName="description"></ion-textarea>
-          <!-- <span class="validationlog">ادخل الوصف</span> -->
-          </ion-item>
-      </ion-col>
-
 
       <ion-col size="12">
         <div *ngIf="!favorite">
@@ -183,7 +172,7 @@
     </ion-row>
      </form>   
 
-     <ion-button class="nextbtn text-white" fill="clear" fixed bottom  type="submit" (click)="postForm()">
+     <ion-button class="nextbtn text-white" fill="clear" fixed bottom [disabled]="!subFavForm.valid"  type="submit" (click)="postForm()">
       حفط
     </ion-button>
 
