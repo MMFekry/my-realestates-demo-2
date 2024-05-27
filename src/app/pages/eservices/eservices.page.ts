@@ -98,11 +98,9 @@ export class EservicesPage implements OnInit {
     });
   }
 
-  goDetails(){
-    //reg: RegisteredRealestate){
-    //this.regService.goDetails(reg);
-    this.router.navigate(['tabs/pages/eservicelv1'])
+  goDetails(reg: RegisteredRealestate){
     
+    this.router.navigate(['tabs/pages/eservicelv1'], {state: {registered : reg}})
   }
 
   

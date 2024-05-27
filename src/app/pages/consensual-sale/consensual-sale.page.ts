@@ -6,9 +6,8 @@ import { LoadingController, ToastController } from '@ionic/angular';
 import { PartyService } from 'src/app/service/parties/party.service';
 import { Party } from 'src/app/@shared/models/party';
 import { RequestService } from 'src/app/service/requests/request.service';
-import { RequestInputModel } from 'src/app/models/Requests/request-input-model';
 import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
-import { Person } from "src/app/models/Requests/Person";
+import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
 
 
 @Component({
@@ -24,6 +23,7 @@ export class ConsensualSalePage implements OnInit {
  party!: Party;
  output!: RequestOutputModel;
  isDeleted:boolean = false;
+ registered!: RegisteredRealestate;
 
   constructor(private modalCtrl : ModalController, private fb: FormBuilder,
     private partyService: PartyService, private router: Router,
@@ -35,6 +35,13 @@ export class ConsensualSalePage implements OnInit {
    }
 
   ngOnInit() {
+    let state = this.router.getCurrentNavigation();
+    var current = state?.extras.state;
+    if (current) {
+      console.log(current['registered']);
+      this.registered = (current['registered']) as RegisteredRealestate;
+    }
+
     this.patchForm();
 
   }
@@ -140,12 +147,15 @@ export class ConsensualSalePage implements OnInit {
   }
   }
 
-  async CreateRequest(){
-    this.router.navigate(['tabs/pages/salevalue'])
+  async CreateRequest(reg: RegisteredRealestate){
+    this.router.navigate(['tabs/pages/salevalue'], {state: {registered : reg}})
 
     debugger;
 
-    let loading = await this.loadingCtrl.create({});
+    let loading = await this.loadingCtrl.create({
+      message: 'Loading..',
+      spinner: 'bubbles',
+    });
     await loading.present();
 
     this.requestService.postData().subscribe(async res => 

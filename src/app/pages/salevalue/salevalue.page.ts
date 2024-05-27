@@ -4,6 +4,7 @@ import { TransactionService } from 'src/app/service/transactions/transaction.ser
 import { LoadingController, ToastController } from '@ionic/angular';
 import { RequestOutputModel } from "src/app/models/Requests/RequestOutputModel";
 import { Router } from '@angular/router';
+import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
 
 @Component({
   selector: 'app-salevalue',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class SalevaluePage implements OnInit {
   output!: RequestOutputModel;
+  registered!: RegisteredRealestate;
 
   constructor(private transactionService : TransactionService,
     private loadingCtrl: LoadingController, private tosterCtrl : ToastController,
@@ -20,13 +22,22 @@ export class SalevaluePage implements OnInit {
 
    }
 
-  ngOnInit() {
+   ngOnInit() {
+    let state = this.router.getCurrentNavigation();
+    var current = state?.extras.state;
+    if (current) {
+      console.log(current['registered']);
+      this.registered = (current['registered']) as RegisteredRealestate;
+    }
   }
 
   async PostData(){
     debugger;
 
-    let loading = await this.loadingCtrl.create({});
+    let loading = await this.loadingCtrl.create({
+      message: 'Loading..',
+      spinner: 'bubbles',
+    });
     await loading.present();
     let trans = this.CreateTransaction();
     this.transactionService.postData(trans).subscribe(async res => 
@@ -37,17 +48,18 @@ export class SalevaluePage implements OnInit {
         console.log(this.output);
         if(this.output.ResponseCode == 200){
           let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage
+            message: this.output.ResponseMessage,
+            duration: 4000
           });
-          //await toast.present();
+          await toast.present();
 
-          //this.router.navigate(['../addparty'])
           this.router.navigate(['tabs/pages/feessale'])
 
         }
         else{
           let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage
+            message: this.output.ResponseMessage,
+            duration: 4000
           });
           await toast.present();
         }
@@ -55,7 +67,8 @@ export class SalevaluePage implements OnInit {
       }, async e => {
         await loading.dismiss();
         let toast = await this.tosterCtrl.create({
-          message: e.message
+          message: e.message,
+          duration: 4000
         });
         await toast.present();
       });

@@ -11,9 +11,14 @@
 
 <ion-content [fullscreen]="true" class="ion-padding mb-3">
   
-  <ion-card class="white-bg greenLne m-0">
+  <ion-card class="white-bg greenLne m-0" *ngIf="registered">
     <ion-card-header>
-    <ion-card-title class="Graphik-bold h3">٥ شارع أحمد عصمت القاهرة القاهرة</ion-card-title>
+    <ion-card-title class="Graphik-bold h3">
+      <div *ngFor="let adres of registered.LandsInfo">
+        {{adres.Number+ ',' +adres.DistrictName+ ',' +adres.PoliceOffice+ ',' +adres.Governorate}}
+        <!-- <p>محافظة {{adres.Governorate}}</p> -->
+      </div>    
+    </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
@@ -21,7 +26,7 @@
         </ion-chip>
 
           <ion-chip class="borderradius5 bgLightgreen greenText Graphik-Reg">
-            <ion-label>وحدة</ion-label>
+            <ion-label>{{registered.PropertyType}}</ion-label>
             </ion-chip>
 
     </ion-card-content>
@@ -37,7 +42,7 @@
         
         <ion-grid>
           <ion-row>
-            <ion-col class="ion-text-center" size="4"  routerLink="../second-servces"> 
+            <ion-col class="ion-text-center" size="4" (click)="GoOwnership(registered)"> 
               <ion-card class="white-bg noshadow">
                 <ion-card-header class="cardservces">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30.971" height="38.126" viewBox="0 0 30.971 38.126">

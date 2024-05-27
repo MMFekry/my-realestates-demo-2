@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
-import {RegisteredRealestatesService} from 'src/app/service/realestates/registered-realestates.service'
 @Component({
   selector: 'app-eservicelv1',
   templateUrl: './eservicelv1.page.html',
@@ -9,16 +8,22 @@ import {RegisteredRealestatesService} from 'src/app/service/realestates/register
 })
 export class Eservicelv1Page implements OnInit {
 registered!: RegisteredRealestate;
-  constructor(private router: Router, private regservice: RegisteredRealestatesService) {
-    let state = router.getCurrentNavigation();
-    var current = state?.extras.state;
-if (current) {
-    console.log(current['data']);
-}
+  constructor(private router: Router) {
+    
    }
 
   ngOnInit() {
-    this.registered = this.regservice.registered;
+    let state = this.router.getCurrentNavigation();
+    var current = state?.extras.state;
+    if (current) {
+      console.log(current['registered']);
+      this.registered = (current['registered']) as RegisteredRealestate;
+    }
   }
 
+  GoOwnership(reg: RegisteredRealestate){
+    //  routerLink="../second-servces"
+    this.router.navigate(['tabs/pages/second-servces'], {state: {registered : reg}})
+
+  }
 }
