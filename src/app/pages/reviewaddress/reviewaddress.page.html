@@ -29,15 +29,15 @@
 
 
     <ion-grid class="px-2">
-      <ion-row>
-        <ion-col size="6"> 
+      <ion-row *ngIf="review">
+        <ion-col size="6" > 
           <ion-card class="white-bg noshadow m-0">
             <ion-card-header class="labeladdress ion-no-padding mb-2">
                 <h6 class="m-0">المحافظة</h6>
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">القاهرة</ion-label>
+              <ion-label class="servcetaxt">{{review.Governorote}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -50,7 +50,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">الوايلي</ion-label>
+              <ion-label class="servcetaxt">{{review.City}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -63,7 +63,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">الحي الثالث</ion-label>
+              <ion-label class="servcetaxt">{{review.District}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -76,7 +76,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">٥ شارع محمد ثروت</ion-label>
+              <ion-label class="servcetaxt">{{review.Street}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -90,7 +90,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">١٠١</ion-label>
+              <ion-label class="servcetaxt">{{review.UnitNumber}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -103,7 +103,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">١</ion-label>
+              <ion-label class="servcetaxt">{{review.FloorNumber}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -116,7 +116,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">١٢٠ متر مربع</ion-label>
+              <ion-label class="servcetaxt">{{review.Area}}</ion-label>
         
             </ion-card-content>
           </ion-card>
@@ -129,20 +129,7 @@
             </ion-card-header>
             <ion-card-content class="pb-0 ion-no-padding">
               
-              <ion-label class="servcetaxt">٦</ion-label>
-        
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <ion-col size="12"> 
-          <ion-card class="white-bg noshadow m-0">
-            <ion-card-header class="labeladdress ion-no-padding mb-2">
-                <h6 class="m-0">الوصف</h6>
-            </ion-card-header>
-            <ion-card-content class="pb-0 ion-no-padding">
-              
-              <ion-label class="servcetaxt">يكتب هنا وصف للعقار</ion-label>
+              <ion-label class="servcetaxt">{{review.FloorCount}}</ion-label>
         
             </ion-card-content>
           </ion-card>

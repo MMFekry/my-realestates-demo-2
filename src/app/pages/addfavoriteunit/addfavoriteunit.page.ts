@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { Party } from 'src/app/models/realestates/party';
 import { GGHeader } from 'src/app/models/GG/ggheader';
 import { LocationMap } from 'src/app/models/realestates/location-map';
+import { AddressReview } from 'src/app/@shared/models/address-review';
 
 @Component({
   selector: 'app-addfavoriteunit',
@@ -54,60 +55,83 @@ export class AddfavoriteunitPage implements OnInit {
     this.getGovernorates();
     this.getFloors();
     this.getFloorNumbers();
-    //this.getUnitNumbers();
     this.getNumberTypes();
     this.getDescList();
     this.getLetterList();
   }
-
+ 
   async postForm(){
     debugger;
-    //routerLink="../reviewaddress"
+    console.log(this.favform.getRawValue());
     let favorite: Favorite = {...this.favform.value,...this.subFavForm.value};
-    //favorite = {...this.subFavForm.value};
-    let model = this.CreateFavoriteModel(favorite);
+    let review: AddressReview = this.GetAddressReview(favorite);
 
-    let loading = await this.loadingCtrl.create({});
+    let model = this.CreateFavoriteModel(favorite);
+    let loading = await this.loadingCtrl.create({
+      message: 'Loading..',
+      spinner: 'bubbles',
+    });
     await loading.present();
 
-    this.favoriteService.postdata(model).subscribe(async res => {
-      await loading.dismiss();
-        this.output = res;
-        console.log(this.output);
-        debugger;
-        if(this.output.ResponseCode == 200){
-          let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage + 'رقم الطلب' + this.output.RequestID,
+     this.favoriteService.postdata(model).subscribe(async res => {
+       await loading.dismiss();
+         this.output = res;
+         console.log(this.output);
+    //     debugger;
+         if(this.output.ResponseCode == 200){
+           let toast = await this.tosterCtrl.create({
+             message: this.output.ResponseMessage + 'رقم الطلب' + this.output.RequestID,
+             duration: 3000
+           });
+           await toast.present();
+
+           this.router.navigate(['tabs/pages/reviewaddress'], {state: {rev : review}})
+
+         }
+         else{
+           let toast = await this.tosterCtrl.create({
+             message: this.output.ResponseMessage,
             duration: 3000
-          });
+           });
           await toast.present();
 
-          this.router.navigate(['tabs/pages/reviewaddress'])
+         }
 
-        }
-        else{
-          let toast = await this.tosterCtrl.create({
-            message: this.output.ResponseMessage,
-            duration: 3000
-          });
-          await toast.present();
+       }, async e => {
+    //     debugger;
 
-        }
+         await loading.dismiss();
+         let toast = await this.tosterCtrl.create({
+           message: e.message,
+           duration: 3000
+         });
+         await toast.present();
+    //     this.router.navigate(['tabs/pages/reviewaddress'])
 
-      }, async e => {
-        debugger;
-
-        await loading.dismiss();
-        let toast = await this.tosterCtrl.create({
-          message: e.message,
-          duration: 3000
-        });
-        await toast.present();
-        this.router.navigate(['tabs/pages/reviewaddress'])
-
-      });
+       });
   }
 
+  GetAddressReview(favorite: Favorite): AddressReview{
+    
+    let gov = this.governorates.find(_ => _.ID === favorite.govID)
+    let city = this.cities.find(_ => _.ID === favorite.cityID)
+    let district = this.districts.find(_ => _.ID === favorite.districtID)
+    let street = this.streets.find(_ => _.ID === favorite.streetID)
+    let floorNumber = this.floorNumbers.find(_ => _.ID === favorite.floorNumberID)
+    let floor = this.floors.find(_ => _.ID === favorite.floorID)
+
+    return {
+      Governorote: gov?.Name,
+      City: city?.Name,
+      District: district?.Name,
+      FloorCount: floor?.Name,
+      FloorNumber: floorNumber?.Name,
+      //Street: street?.Name,
+      Area: this.favform.get('area')?.value,
+      UnitNumber: this.favform.get('unitNumberID')?.value
+
+    } as AddressReview
+  }
   CreateFavoriteModel(favorite: Favorite) : PostFavoriteInputModel{
     return {
         GGHeader: {} as GGHeader,
@@ -185,13 +209,14 @@ export class AddfavoriteunitPage implements OnInit {
       govID: ['', Validators.required],
       cityID: ['', Validators.required],
       districtID: ['', Validators.required],
-      streetID: ['', Validators.required],
+      streetID: [0, Validators.required],
       floorID: ['', Validators.required],
       unitNumberID: ['', Validators.required],
       area: ['', Validators.required],
       floorNumberID: ['', Validators.required]
     });
   }
+
   CreateSubForm(){
 
     this.subFavForm = this.fb.group({
@@ -227,7 +252,6 @@ export class AddfavoriteunitPage implements OnInit {
     });
   }
 
-  
   getDistricts(event: any){
     //debugger;
     let cityID = event.detail.value;
@@ -237,7 +261,6 @@ export class AddfavoriteunitPage implements OnInit {
     });
   }
 
-  
   getStreets(event: any){
     //debugger;
     let districtID = event.detail.value;
@@ -257,15 +280,12 @@ export class AddfavoriteunitPage implements OnInit {
   }
   
   getFloors(){
-    //debugger;
-    //let districtID = event.detail.value;
     this.lookupService.getLookupsData(ConfigurationLookups.MainFloors, 0).subscribe(res => {
       this.floors = res.data
       console.log(res.data)
     });
   }
-
-  
+ 
   getFloorNumbers(){
     //debugger;
     //let districtID = event.detail.value;
@@ -274,17 +294,6 @@ export class AddfavoriteunitPage implements OnInit {
       console.log(res.data)
     });
   }
-
-  
-  // getUnitNumbers(){
-  //   //debugger;
-  //   //let districtID = event.detail.value;
-  //   this.lookupService.getLookupsData(ConfigurationLookups.Floors, 0).subscribe(res => {
-  //     this.unitNumbers = res.data
-  //     console.log(res.data)
-  //   });
-
-  // }
   
   getNumberTypes(){
     this.lookupService.getLookupsData(ConfigurationLookups.NumberTypes, 0).subscribe(res => {
@@ -293,7 +302,6 @@ export class AddfavoriteunitPage implements OnInit {
     });
   }
 
-  
   getDescList(){
     this.lookupService.getLookupsData(ConfigurationLookups.RealEstateDescriptions, 0).subscribe(res => {
       this.descList = res.data
@@ -301,8 +309,6 @@ export class AddfavoriteunitPage implements OnInit {
     });
   }
 
-  
-  
   getLetterList(){
     this.lookupService.getLookupsData(ConfigurationLookups.Letters, 0).subscribe(res => {
       this.letterList = res.data
@@ -315,7 +321,6 @@ export class AddfavoriteunitPage implements OnInit {
     this.favorite = {...this.subFavForm.value}
   }
 
-  
   OnSubmitForm(){
     console.log(this.favform.value);
   }

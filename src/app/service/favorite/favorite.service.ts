@@ -4,12 +4,15 @@ import { Observable } from 'rxjs';
 import { environment } from "src/environments/environment";
 import { REALESTATE_API } from "src/app/@core/api/api-config/realestate-api";
 import { PostFavoriteOutputModel, PostFavoriteInputModel } from 'src/app/models/favorite/PostFavoriteInputModel';
+import { Favorite } from 'src/app/@shared/models/favorite';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FavoriteService{
+  favorite!: Favorite;
+
     constructor(private http: HttpClient) { }
 
   postdata(model: PostFavoriteInputModel): Observable<PostFavoriteOutputModel> {

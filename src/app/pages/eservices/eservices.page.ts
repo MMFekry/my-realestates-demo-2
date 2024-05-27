@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, InfiniteScrollCustomEvent, ToastController} from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import { FavoriteRealestateResult } from 'src/app/models/realestates/favorite-realestate-result';
-import { RegisteredRealestateResult } from 'src/app/models/realestates/registered-realestate-result';
 import { RealestateFavoriteService } from '../../service/realestates/realestate-favorite.service';
 import { RegisteredRealestatesService } from '../../service/realestates/registered-realestates.service';
 import { RegisteredRealestate } from 'src/app/models/realestates/registered-realestate';
-import { state } from '@angular/animations';
 import { FavoriteRealestate } from 'src/app/models/realestates/favorite-realestate';
 
 @Component({
