@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddressReview } from 'src/app/@shared/models/address-review';
+import { BuildingNumber } from 'src/app/@shared/models/building-number';
 import { Favorite } from 'src/app/@shared/models/favorite';
 import { FavoriteService } from 'src/app/service/favorite/favorite.service';
 
@@ -11,10 +12,9 @@ import { FavoriteService } from 'src/app/service/favorite/favorite.service';
 })
 export class ReviewaddressPage implements OnInit {
   review!: AddressReview;
- governorate!: string;
- city!: string;
- district!: string;  
-  constructor(private favoriteService: FavoriteService, private router: Router) { 
+  building!: BuildingNumber;
+
+  constructor(private router: Router) { 
     
   }
 
@@ -25,16 +25,10 @@ export class ReviewaddressPage implements OnInit {
     if (current) {
         console.log(current['rev']);
         this.review = (current['rev']) as AddressReview; 
+        this.building = (current['build']) as BuildingNumber; 
+
     }
-    // let nav = this.router.getCurrentNavigation();
-    // if(nav != null){
-    //   let x = nav.extras.state.rev
-    //   this.review = () as AddressReview; 
-    //   this.governorate = this.review.Governorote;
-    //   this.city = this.review.City;
-    //   this.district = this.review.District;
-    // }
-    console.log(this.review)
+    
  }
 
 }

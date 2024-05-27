@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ModalController } from '@ionic/angular';
 import { ConfigurationLookups, PropertyTypes } from 'src/app/@shared/enums/enums';
 import { Favorite } from 'src/app/@shared/models/favorite';
+import { BuildingNumber } from 'src/app/@shared/models/building-number';
 import { NID } from 'src/app/@shared/static/nid';
 import { BuildingAddress } from 'src/app/models/favorite/BuildingAddress';
 import { Contract } from 'src/app/models/favorite/Contract';
@@ -41,7 +42,7 @@ export class AddfavoriteunitPage implements OnInit {
  subFavForm : FormGroup=new FormGroup({});
  favorite!: Favorite;
  output!: PostFavoriteOutputModel;
-
+ building!: BuildingNumber;
  constructor(private modalCtrl : ModalController, private fb: FormBuilder, private router: Router,
     private lookupService : LookupService, private favoriteService: FavoriteService,
     private loadingCtrl: LoadingController, private tosterCtrl : ToastController,
@@ -71,6 +72,8 @@ export class AddfavoriteunitPage implements OnInit {
       message: 'Loading..',
       spinner: 'bubbles',
     });
+    // this.router.navigate(['tabs/pages/reviewaddress'], {state: {rev : review, build: this.building}})
+
     await loading.present();
 
      this.favoriteService.postdata(model).subscribe(async res => {
@@ -85,7 +88,7 @@ export class AddfavoriteunitPage implements OnInit {
            });
            await toast.present();
 
-           this.router.navigate(['tabs/pages/reviewaddress'], {state: {rev : review}})
+           this.router.navigate(['tabs/pages/reviewaddress'], {state: {rev : review, build: this.building}})
 
          }
          else{
@@ -317,11 +320,41 @@ export class AddfavoriteunitPage implements OnInit {
   }
 
   OnSubmitSubFom(){
+    debugger;
     console.log(this.subFavForm.value);
     this.favorite = {...this.subFavForm.value}
+    this.building = this.GetBuildingNumber(this.favorite);
+    if (this.building.upletterText === undefined){this.building.upletterText = ''}
+    if (this.building.upnumberText === undefined){this.building.upnumberText = ''}
+    if (this.building.dennumberText === undefined){this.building.dennumberText = ''}
+    if (this.building.denletterText === undefined){this.building.denletterText = ''}
+    if (this.building.desclistText === undefined){this.building.desclistText = ''}
+    if (this.building.towerlistText === undefined){this.building.towerlistText = ''}
+
   }
 
   OnSubmitForm(){
     console.log(this.favform.value);
+  }
+
+  GetBuildingNumber(favorite: Favorite): BuildingNumber{
+    
+    let numberType = this.numberTypes.find(_ => _.ID === favorite.numberType)
+    let upletter = this.letterList.find(_ => _.ID === Number(favorite.upletter))
+    let denletter = this.letterList.find(_ => _.ID === favorite.denletter)
+    let desclist = this.descList.find(_ => _.ID === favorite.desclist)
+    //let towerlist = this.towers.find(_ => _.ID === favorite.towerlist)
+    //if(upletter === undefined){ up}
+
+    return {
+      numberTypeText: numberType?.Name,
+      upnumberText: this.subFavForm.get('upnumber')?.value,
+      upletterText: upletter?.Name,
+      dennumberText: this.subFavForm.get('dennumber')?.value,
+      denletterText: denletter?.Name,
+      desclistText: desclist?.Name,
+      //towerlistText: towerlist?.Name,
+
+    } as BuildingNumber
   }
 }

@@ -137,7 +137,7 @@
       </ion-col>
 
       <ion-col size="12">
-        <div *ngIf="!favorite">
+        <div *ngIf="!building">
           <ion-button id="open-custom" class="addparty ion-no-padding" fill="clear">
             <ion-icon class="iconadd" name="add-circle-outline"></ion-icon>
                 <ion-label class="labeladd">إضافة رقم المبني</ion-label><sup>*</sup>
@@ -149,11 +149,11 @@
                 <ion-label class="noteempty" expand="block">لم يتم ادخال رقم المبني</ion-label>
           </div>
         </div>
-        <ion-list class="white-bg roundershadow mt-3 px-3" fill="clear" lines="none" *ngIf="favorite">
+        <ion-list class="white-bg roundershadow mt-3 px-3" fill="clear" lines="none" *ngIf="building">
         <ion-item fill="clear" color="transparent" class="itempart m-0">
           <ion-icon color="color-dark" class="m-0 iconpart" slot="start" name="trail-sign-outline"></ion-icon>
       
-          <h2 class="partname" expand="block">{{favorite.upnumber + favorite.upletter + '/' + favorite.dennumber + favorite.denletter + favorite.desclist + favorite.towerlist}}</h2>
+          <h2 class="partname" expand="block">{{building.upnumberText + building.upletterText + '/' + building.dennumberText + building.denletterText + building.desclistText + building.towerlistText}}</h2>
         <!-- <small class="subtitlritem">شراء كامل العقار</small> -->
       
         
